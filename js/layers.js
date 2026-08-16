@@ -1,5 +1,5 @@
 addLayer("p", {
-    name: "prestige", // This is optional, only used in a few places, If absent it just uses the layer id.
+    name: "Particles", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
@@ -8,7 +8,7 @@ addLayer("p", {
     }}, // Sets prestige points at the start
     color: "#33944d",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "prestige points", // Name of prestige currency
+    resource: "Particles", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -28,28 +28,28 @@ addLayer("p", {
     upgrades: {
         11: {
             title: "The Beginning",
-            description: "Start generating points",
+            description: "Start generating atoms",
             cost: new Decimal(1)
         },
         12: {
-            title: "Prestige Upgrade 1",
-            description: "Doubles points gain",
+            title: "Particle Upgrade 1",
+            description: "Doubles atom gain",
             cost: new Decimal(1),
             unlocked() {
                 return hasUpgrade('p', 11)
             }
         },
         13: {
-            title: "Prestige Upgrade 2",
-            description: "Triples points gain",
+            title: "Particle Upgrade 2",
+            description: "Triples atom gain",
             cost: new Decimal(3),
             unlocked() {
                 return hasUpgrade('p', 12)
             }
         },
         14: {
-            title: "Prestige Upgrade 3",
-            description: "Prestige Points boost Points gain",
+            title: "Particle Upgrade 3",
+            description: "Particles boost Atom gain",
             cost: new Decimal(10),
             unlocked() {
                 return hasUpgrade('p', 13)
@@ -62,16 +62,16 @@ addLayer("p", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         },
         21: {
-            title: "Prestige Upgrade 4",
-            description: "2.5x points gain",
+            title: "Particlr Upgrade 4",
+            description: "2.5x atom gain",
             cost: new Decimal(30),
             unlocked() {
                 return hasUpgrade('p', 14)
             }
         },
         22: {
-            title: "Prestige Upgrade 5",
-            description: "Points boost Prestige Points gain",
+            title: "Particle Upgrade 5",
+            description: "Atoms boost Particle gain",
             cost: new Decimal(65),
             unlocked() {
                 return hasUpgrade('p', 21)
@@ -84,7 +84,7 @@ addLayer("p", {
             
         },
         23: {
-            title: "Prestige Upgrade 6",
+            title: "Particle Upgrade 6",
             description: "Increases the effect of PU3",
             cost: new Decimal(250),
             unlocked() {
@@ -92,24 +92,24 @@ addLayer("p", {
             }
         },
         24: {
-            title: "Prestige Upgrade 7",
-            description: "5x Prestige Points gain",
+            title: "Particle Upgrade 7",
+            description: "5x Particle gain",
             cost: new Decimal(1000),
             unlocked() {
                 return hasUpgrade('p', 23)
             }
         },
         31: {
-            title: "Prestige Upgrade 8",
-            description: "Unlocks the first prestige challenge",
+            title: "Particle Upgrade 8",
+            description: "Unlocks the first particle challenge",
             cost: new Decimal(12500),
             unlocked() {
                 return hasUpgrade('p', 24)
             }
         },
         32: {
-            title: "Prestige Upgrade 9",
-            description: "Points boost itself",
+            title: "Particle Upgrade 9",
+            description: "Atoms boost itself",
             cost: new Decimal("1e6"),
             unlocked() {
                 return hasUpgrade('p', 31)
@@ -122,8 +122,8 @@ addLayer("p", {
             
         },
         33: {
-            title: "Prestige Upgrade 10",
-            description: "Prestige points boost itself",
+            title: "Particle Upgrade 10",
+            description: "Particles points boost itself",
             cost: new Decimal("1.5e7"),
             unlocked() {
                 return hasUpgrade('p', 32)
@@ -139,11 +139,11 @@ addLayer("p", {
 
     challenges: {
         11: {
-            name: "Prestige Challenge 1",
-            challengeDescription: "Points are square-rooted",
+            name: "Particle Challenge 1",
+            challengeDescription: "Atoms are square-rooted",
              canComplete: function() {return player.points.gte(3000)},
              goalDescription: "3,000 Points",
-             rewardDescription: "10x prestige points gain",
+             rewardDescription: "10x particle points gain",
             unlocked() {
                 return hasUpgrade('p', 31)
             }
