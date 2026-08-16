@@ -55,10 +55,12 @@ addLayer("p", {
                 return hasUpgrade('p', 13)
             },
             effect() {
-    let boost = 0
-    if (hasUpgrade('p', 23)) boost = boost + 0.25
-    return player[this.layer].points.add(1).pow(0.5 + boost)
-},
+                let boost = 0
+                if (hasUpgrade('p', 23)) boost = boost + 0.25
+        return player[this.layer].points.add(1).pow(0.5 + boost)
+             },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
+        },
         21: {
             title: "Particlr Upgrade 4",
             description: "2.5x atom gain",
@@ -75,8 +77,12 @@ addLayer("p", {
                 return hasUpgrade('p', 21)
             },
              effect() {
-    return player.points.add(1).pow(0.15)
-},
+        return player.points.add(1).pow(0.15)
+    },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            
+            
+        },
         23: {
             title: "Particle Upgrade 6",
             description: "Increases the effect of PU3",
@@ -95,7 +101,7 @@ addLayer("p", {
         },
         31: {
             title: "Particle Upgrade 8",
-            description: "Unlocks the particle challenges",
+            description: "Unlocks the first particle challenge",
             cost: new Decimal(12500),
             unlocked() {
                 return hasUpgrade('p', 24)
@@ -141,36 +147,24 @@ addLayer("p", {
     },
 
     challenges: {
-    11: {
-        name: "Particle Challenge 1",
-        challengeDescription: "Atoms are square-rooted",
-        canComplete: function() {return player.points.gte(3000)},
-        goalDescription: "3,000 Points",
-        rewardDescription: "10x particle points gain",
-        unlocked() {
-            return true
+        11: {
+            name: "Particle Challenge 1",
+            challengeDescription: "Atoms are square-rooted",
+             canComplete: function() {return player.points.gte(3000)},
+             goalDescription: "3,000 Points",
+             rewardDescription: "10x particle points gain",
+            unlocked() {
+                return hasUpgrade('p', 31)
+            }
         }
-    },
-
-    12: {
-        name: "Particle Challenge 2",
-        challengeDescription: "Atoms + Upgrades PU3 and PU5 are square-rooted",
-        canComplete: function() {return player.points.gte(50000)},
-        goalDescription: "50,000 Points",
-        rewardDescription: "5x particle points gain",
-        unlocked() {
-			return true
-		}
-    },
-},
+	},
 
     gainMult() {
         let mult = new Decimal(1)
         if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
-        if (hasUpgrade('p', 24)) mult = mult.times(5)
+         if (hasUpgrade('p', 24)) mult = mult.times(5)
         if (hasChallenge('p', 11)) mult = mult.times(10)
-		if (hasChallenge('p', 12)) mult = mult.times(5)
-        if (hasUpgrade('p', 33)) mult =mult.times(upgradeEffect('p', 33))
+         if (hasUpgrade('p', 33)) mult =mult.times(upgradeEffect('p', 33))
         return mult
     },
 })
