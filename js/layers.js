@@ -144,6 +144,15 @@ addLayer("p", {
                 return hasUpgrade('p', 33)
             }
         },
+
+		42: {
+            title: "Particle Upgrade 11",
+            description: "Increases the effect of PU5.",
+            cost: new Decimal(1e9),
+            unlocked() {
+                return hasMilestone('p', 11)
+            }
+        },
     },
 
     challenges: {
