@@ -74,15 +74,15 @@ addLayer("p", {
             description: "Atoms boost Particle gain",
             cost: new Decimal(65),
             unlocked() {
-        return hasUpgrade('p', 21)
+                return hasUpgrade('p', 21)
+            },
+             effect() {
+        return player.points.add(1).pow(0.15)
     },
-    effect() {
-        let boost = player.points.add(1).pow(0.15)
-        if (hasUpgrade('p', 42)) boost = boost.times(upgradeEffect('p', 42))
-        return boost
-    },
-    effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-},
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            
+            
+        },
         23: {
             title: "Particle Upgrade 6",
             description: "Increases the effect of PU3",
@@ -144,15 +144,6 @@ addLayer("p", {
                 return hasUpgrade('p', 33)
             }
         },
-
-		42: {
-            title: "Particle Upgrade 12",
-            description: "Increases the effect of PU5.",
-            cost: new Decimal(1e9),
-            unlocked() {
-                return hasMilestone('p', 11)
-            }
-        },
     },
 
     challenges: {
@@ -184,36 +175,23 @@ addLayer("p", {
         if (hasChallenge('p', 11)) mult = mult.times(10)
         if (hasChallenge('p', 12)) mult = mult.times(5)
         if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
-        if (hasMilestone('p', 11)) mult = mult.times(2)
-			return mult
-},
-
-tabFormat: {
-    "Upgrades": {
-        content: [
-            "main-display",
-            "prestige-button",
-            "resource-display",
-            "upgrades"
-        ]
+        return mult
     },
-    "Matter": {
-        unlocked() {
-            return hasChallenge('p', 12)
-        },
-        content: [
-            ["display-text", "Matter"],
-            ["milestone", 11]
-        ]
-    }
-},
 
-milestones: {
-    11: {
-        requirementDescription: "1e10 Particles",
-        effectDescription: "2x Particle gain",
-        done() {
-            return player.p.points.gte(1e10)
+    tabFormat: {
+        "Upgrades": {
+            content: [
+                "main-display",
+                "prestige-button",
+                "resource-display",
+                "upgrades"
+            ]
+        },
+        "Matter": {
+            content: [
+                ["display-text", "Matter"],
+                ["display-text", "This is the Matter subtab."]
+            ]
         }
-    }
-},
+    },
+})
