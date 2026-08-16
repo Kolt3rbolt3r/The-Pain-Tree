@@ -177,21 +177,5 @@ addLayer("p", {
         if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
         return mult
     },
-
-    tabFormat: {
-        "Upgrades": {
-            content: [
-                "main-display",
-                "prestige-button",
-                "resource-display",
-                "upgrades"
-            ]
-        },
-        "Matter": {
-            content: [
-                ["display-text", "Matter"],
-                ["display-text", "This is the Matter subtab."]
-            ]
-        }
     },
 })
