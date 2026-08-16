@@ -55,13 +55,11 @@ addLayer("p", {
                 return hasUpgrade('p', 13)
             },
             effect() {
-                let boost = 0
-                if (hasUpgrade('p', 23)) boost = boost + 0.25
-				if (inChallenge('p', 13)) boost = boost.sqrt()
-        return player[this.layer].points.add(1).pow(0.5 + boost)
-             },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
-        },
+    let boost = new Decimal(0)
+    if (hasUpgrade('p', 23)) boost = boost.add(0.25)
+    if (inChallenge('p', 13)) boost = boost.sqrt()
+    return player[this.layer].points.add(1).pow(new Decimal(0.5).add(boost))
+},
         21: {
             title: "Particlr Upgrade 4",
             description: "2.5x atom gain",
@@ -169,7 +167,7 @@ addLayer("p", {
             return true
         }
     },
-	12: {
+	13: {
         name: "Particle Challenge 3",
         challengeDescription: "Unknown Point gain is cube-rooted, and PU3+PU5 are square rooted.",
         canComplete: function() {return player.points.gte(250000)},
