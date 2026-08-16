@@ -147,18 +147,27 @@ addLayer("p", {
     },
 
     challenges: {
-        11: {
-            name: "Particle Challenge 1",
-            challengeDescription: "Atoms are square-rooted",
-             canComplete: function() {return player.points.gte(3000)},
-             goalDescription: "3,000 Points",
-             rewardDescription: "10x particle points gain",
-            unlocked() {
-                return hasUpgrade('p', 31)
-            }
+    11: {
+        name: "Particle Challenge 1",
+        challengeDescription: "Atoms are square-rooted",
+        canComplete: function() {return player.points.gte(3000)},
+        goalDescription: "3,000 Points",
+        rewardDescription: "10x particle points gain",
+        unlocked() {
+            return hasUpgrade('p', 31)
         }
-	},
-
+    },
+    12: {
+        name: "Particle Challenge 2",
+        challengeDescription: "Unknown Point gain is cubed",
+        canComplete: function() {return player.points.gte(50000)},
+        goalDescription: "50,000 Points",
+        rewardDescription: "5x particle points gain",
+        unlocked() {
+            return hasUpgrade('p', 31)
+        }
+    },
+},
     gainMult() {
         let mult = new Decimal(1)
         if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
