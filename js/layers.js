@@ -55,12 +55,12 @@ addLayer("p", {
                 return hasUpgrade('p', 13)
             },
             effect() {
-                let boost = 0
-                if (hasUpgrade('p', 23)) boost = boost + 0.25
-        return player[this.layer].points.add(1).pow(0.5 + boost)
-             },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
-        },
+    let boost = 0
+    if (hasUpgrade('p', 23)) boost = boost + 0.25
+    let effect = player[this.layer].points.add(1).pow(0.5 + boost)
+    if (inChallenge('p', 12)) effect = effect.sqrt()
+    return effect
+},
         21: {
             title: "Particlr Upgrade 4",
             description: "2.5x atom gain",
@@ -77,12 +77,10 @@ addLayer("p", {
                 return hasUpgrade('p', 21)
             },
              effect() {
-        return player.points.add(1).pow(0.15)
-    },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-            
-            
-        },
+    let effect = player.points.add(1).pow(0.15)
+    if (inChallenge('p', 12)) effect = effect.sqrt()
+    return effect
+},
         23: {
             title: "Particle Upgrade 6",
             description: "Increases the effect of PU3",
