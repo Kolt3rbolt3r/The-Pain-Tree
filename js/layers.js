@@ -159,7 +159,7 @@ addLayer("p", {
     },
     12: {
         name: "Particle Challenge 2",
-        challengeDescription: "Unknown Point gain is cubed",
+        challengeDescription: "Unknown Point gain is cube-rooted",
         canComplete: function() {return player.points.gte(50000)},
         goalDescription: "50,000 Points",
         rewardDescription: "5x particle points gain",
