@@ -165,7 +165,7 @@ addLayer("p", {
         goalDescription: "50,000 Points",
         rewardDescription: "5x particle points gain",
         unlocked() {
-            return hasUpgrade('p', 31)
+            return true
         }
     },
 },
