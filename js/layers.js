@@ -135,6 +135,15 @@ addLayer("p", {
             
             
         },
+
+		41: {
+            title: "Particle Upgrade 11",
+            description: "Doubles atom gain... again.",
+            cost: new Decimal(1),
+            unlocked() {
+                return hasUpgrade('p', 33)
+            }
+        },
     },
 
     challenges: {
