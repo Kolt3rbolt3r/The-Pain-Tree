@@ -101,7 +101,7 @@ addLayer("p", {
         },
         31: {
             title: "Particle Upgrade 8",
-            description: "Unlocks the first particle challenge",
+            description: "Here. Have a 1x multiplier. :Troll:",
             cost: new Decimal(12500),
             unlocked() {
                 return hasUpgrade('p', 24)
@@ -154,7 +154,7 @@ addLayer("p", {
         goalDescription: "3,000 Points",
         rewardDescription: "10x particle points gain",
         unlocked() {
-            return hasUpgrade('p', 31)
+            return true
         }
     },
     12: {
@@ -164,7 +164,7 @@ addLayer("p", {
         goalDescription: "50,000 Points",
         rewardDescription: "5x particle points gain",
         unlocked() {
-            return hasUpgrade('p', 31)
+            return true
         }
     },
 },
