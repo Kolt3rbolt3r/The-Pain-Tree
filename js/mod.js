@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "An Average Tree Game",
-	author: "GreenGamr717",
-	pointsName: "points",
+	name: "A game about atoms",
+	author: "Kolt3rbolter",
+	pointsName: "Atoms",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.01",
+	name: "The begining",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
