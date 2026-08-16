@@ -57,9 +57,7 @@ addLayer("p", {
             effect() {
     let boost = 0
     if (hasUpgrade('p', 23)) boost = boost + 0.25
-    let effect = player[this.layer].points.add(1).pow(0.5 + boost)
-    if (inChallenge('p', 12)) effect = effect.sqrt()
-    return effect
+    return player[this.layer].points.add(1).pow(0.5 + boost)
 },
         21: {
             title: "Particlr Upgrade 4",
@@ -77,9 +75,7 @@ addLayer("p", {
                 return hasUpgrade('p', 21)
             },
              effect() {
-    let effect = player.points.add(1).pow(0.15)
-    if (inChallenge('p', 12)) effect = effect.sqrt()
-    return effect
+    return player.points.add(1).pow(0.15)
 },
         23: {
             title: "Particle Upgrade 6",
