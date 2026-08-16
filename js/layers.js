@@ -139,7 +139,7 @@ addLayer("p", {
 		41: {
             title: "Particle Upgrade 11",
             description: "Doubles atom gain... again.",
-            cost: new Decimal(1),
+            cost: new Decimal(1e9),
             unlocked() {
                 return hasUpgrade('p', 33)
             }
@@ -157,7 +157,7 @@ addLayer("p", {
                 return hasUpgrade('p', 31)
             }
         }
-    },
+	},
 
     gainMult() {
         let mult = new Decimal(1)
