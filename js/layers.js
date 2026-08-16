@@ -156,16 +156,6 @@ addLayer("p", {
             unlocked() {
                 return hasUpgrade('p', 31)
             }
-	},
-	12: {
-        name: "Particle Challenge 2",
-		challengeDescription: "Atoms + Upgrades PU3 and PU5 are square-rooted",
-         canComplete: function() {return player.points.gte(50000)},
-         goalDescription: "50,000 Points",
-         rewardDescription: "5x particle points gain",
-        unlocked() {
-            return hasUpgrade('p', 31)
-            }
 		},
 	},
 
@@ -174,7 +164,7 @@ addLayer("p", {
         if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
          if (hasUpgrade('p', 24)) mult = mult.times(5)
         if (hasChallenge('p', 11)) mult = mult.times(10)
-		if (hasChallenge('p', 12)) mult = mult.times(5)
+		// if (hasChallenge('p', 12)) mult = mult.times(5)
          if (hasUpgrade('p', 33)) mult =mult.times(upgradeEffect('p', 33))
         return mult
     },
