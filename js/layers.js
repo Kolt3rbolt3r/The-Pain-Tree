@@ -74,15 +74,15 @@ addLayer("p", {
             description: "Atoms boost Particle gain",
             cost: new Decimal(65),
             unlocked() {
-                return hasUpgrade('p', 21)
-            },
-             effect() {
-        return player.points.add(1).pow(0.15)
+        return hasUpgrade('p', 21)
     },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-            
-            
-        },
+    effect() {
+        let boost = player.points.add(1).pow(0.15)
+        if (hasUpgrade('p', 42)) boost = boost.times(upgradeEffect('p', 42))
+        return boost
+    },
+    effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+},
         23: {
             title: "Particle Upgrade 6",
             description: "Increases the effect of PU3",
