@@ -57,6 +57,7 @@ addLayer("p", {
             effect() {
                 let boost = 0
                 if (hasUpgrade('p', 23)) boost = boost + 0.25
+				if (inChallenge('p', 13)) boost = boost.sqrt()
         return player[this.layer].points.add(1).pow(0.5 + boost)
              },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
@@ -70,18 +71,19 @@ addLayer("p", {
             }
         },
         22: {
-            title: "Particle Upgrade 5",
-            description: "Atoms boost Particle gain",
-            cost: new Decimal(65),
-            unlocked() {
-                return hasUpgrade('p', 21)
-            },
-             effect() {
-        return player.points.add(1).pow(0.15)
-    },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-            
-            
+			title: "Particle Upgrade 5",
+			description: "Atoms boost Particle gain",
+			cost: new Decimal(65),
+			unlocked() {
+				return hasUpgrade('p', 21)
+			},
+			effect() {
+				let boost = player.points.add(1).pow(0.15)
+				if (inChallenge('p', 13)) boost = boost.sqrt()
+					return boost
+			},
+    effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+},
         },
         23: {
             title: "Particle Upgrade 6",
@@ -167,6 +169,16 @@ addLayer("p", {
             return true
         }
     },
+	12: {
+        name: "Particle Challenge 3",
+        challengeDescription: "Unknown Point gain is cube-rooted, and PU3+PU5 are square rooted.",
+        canComplete: function() {return player.points.gte(250000)},
+        goalDescription: "250,000 Points",
+        rewardDescription: "5x particle points gain",
+        unlocked() {
+            return true
+        }
+    },
 },
     gainMult() {
         let mult = new Decimal(1)
@@ -174,6 +186,7 @@ addLayer("p", {
         if (hasUpgrade('p', 24)) mult = mult.times(5)
         if (hasChallenge('p', 11)) mult = mult.times(10)
 		if (hasChallenge('p', 12)) mult = mult.times(5)
+		if (hasChallenge('p', 13)) mult = mult.times(5)
 		if (hasUpgrade('p', 33)) mult =mult.times(upgradeEffect('p', 33))
         return mult
     },
