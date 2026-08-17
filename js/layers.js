@@ -57,6 +57,7 @@ addLayer("p", {
             effect() {
                 let boost = 0
                 if (hasUpgrade('p', 23)) boost = boost + 0.25
+				if (hasMilestone('m', 3)) boost = boost + 0.15
         return player[this.layer].points.add(1).pow(0.5 + boost)
              },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
@@ -193,7 +194,7 @@ addLayer("p", {
 		if (hasChallenge('p', 12)) mult = mult.times(5)
 		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
-		if (hasMilestone('m', 11)) mult = mult.times(2)
+		if (hasMilestone('m', 1)) mult = mult.times(2)
         return mult
     },
 })
@@ -238,9 +239,14 @@ addLayer("m", {
     },
 
     2: {
-        requirementDescription: "3 Milestones",
+        requirementDescription: "50 Milestones",
         effectDescription: "Double Atom gain",
-        done() {return player.m.points.gte(3)}
+        done() {return player.m.points.gte(50)}
+    },
+	3: {
+        requirementDescription: "500 Milestones",
+        effectDescription: "PU3 is upgraded again.",
+        done() {return player.m.points.gte(500)}
     },
 },
 
