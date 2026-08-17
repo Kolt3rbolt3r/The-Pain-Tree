@@ -1,7 +1,7 @@
 addLayer("p", {
     name: "Particles", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
-    position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
@@ -20,7 +20,7 @@ addLayer("p", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: 1, // Row the layer is in on the tree (0 is the first row)
+    row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
@@ -173,10 +173,8 @@ addLayer("p", {
         if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
         if (hasUpgrade('p', 24)) mult = mult.times(5)
         if (hasChallenge('p', 11)) mult = mult.times(10)
-        if (hasChallenge('p', 12)) mult = mult.times(5)
-        if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
+		if (hasChallenge('p', 12)) mult = mult.times(5)
+		if (hasUpgrade('p', 33)) mult =mult.times(upgradeEffect('p', 33))
         return mult
     },
-    },
- })
-		 
+})
