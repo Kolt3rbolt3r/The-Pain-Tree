@@ -209,10 +209,5 @@ addLayer("p", {
     ],
     layerShown(){return true},
     upgrades: {
-        11: {
-            title: "More Upgrades",
-            description: "Unlocks new upgrades",
-            cost: new Decimal("2.5e12"),
-        },
-    },
+	},
 })
