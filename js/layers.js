@@ -77,12 +77,10 @@ addLayer("p", {
                 return hasUpgrade('p', 21)
             },
              effect() {
-        return player.points.add(1).pow(0.15)
-    },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-            
-            
-        },
+    let boost = 0
+    if (hasUpgrade('p', 42)) boost = boost + 0.1
+    return player.points.add(1).pow(0.15 + boost)
+},
         23: {
             title: "Particle Upgrade 6",
             description: "Increases the effect of PU3",
@@ -142,6 +140,15 @@ addLayer("p", {
             cost: new Decimal(1e9),
             unlocked() {
                 return hasUpgrade('p', 33)
+            }
+        },
+
+		42: {
+            title: "Particle Upgrade 12",
+            description: "Increase effects of PU5.",
+            cost: new Decimal(1.5e11),
+            unlocked() {
+                return hasUpgrade('p', 41)
             }
         },
     },
