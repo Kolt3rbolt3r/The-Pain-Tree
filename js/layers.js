@@ -185,6 +185,16 @@ addLayer("p", {
             return true
         }
     },
+	12: {
+        name: "Particle Challenge 3",
+        challengeDescription: "Unknown Point gain is rooted to the 4th.",
+        canComplete: function() {return player.points.gte(250000)},
+        goalDescription: "250,000 Points",
+        rewardDescription: "2.5x particle points gain",
+        unlocked() {
+            return true
+        }
+    },
 },
     gainMult() {
         let mult = new Decimal(1)
@@ -192,6 +202,7 @@ addLayer("p", {
         if (hasUpgrade('p', 24)) mult = mult.times(5)
         if (hasChallenge('p', 11)) mult = mult.times(10)
 		if (hasChallenge('p', 12)) mult = mult.times(5)
+		if (hasChallenge('p', 13)) mult = mult.times(2.5)
 		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
 		if (hasMilestone('m', 1)) mult = mult.times(2)
