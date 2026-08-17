@@ -180,34 +180,3 @@ addLayer("p", {
     },
  })
 		 
-
-	addLayer("u", {
-    name: "Unlocks",
-    symbol: "U",
-    position: 0,
-    startData() { return {
-        unlocked: true,
-        points: new Decimal(0),
-    }},
-    color: "#33944d",
-    requires: new Decimal(2.5e12),
-    resource: "Unlocks",
-    baseResource: "Atoms",
-    baseAmount() {return player.points},
-    type: "normal",
-    exponent: 0.5,
-    gainMult() {
-        let mult = new Decimal(1)
-        return mult
-    },
-    gainExp() {
-        return new Decimal(1)
-    },
-    row: 1,
-    hotkeys: [
-        {key: "u", description: "U: Reset for unlock points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
-    ],
-    layerShown(){return true},
-    upgrades: {
-	},
-})
