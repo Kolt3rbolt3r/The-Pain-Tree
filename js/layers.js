@@ -70,19 +70,18 @@ addLayer("p", {
             }
         },
         22: {
-            title: "Particle Upgrade 5",
-            description: "Atoms boost Particle gain",
-            cost: new Decimal(65),
-            unlocked() {
-                return hasUpgrade('p', 21)
-            },
-             effect() {
-        return player.points.add(1).pow(0.15)
+    title: "Particle Upgrade 5",
+    description: "Atoms boost Particle gain",
+    cost: new Decimal(65),
+    unlocked() {
+        return hasUpgrade('p', 21)
     },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-            
-            
-        },
+    effect() {
+        if (hasUpgrade('p', 43)) return player.points.add(1).pow(0.25)
+        else return player.points.add(1).pow(0.15)
+    },
+    effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+},
         23: {
             title: "Particle Upgrade 6",
             description: "Increases the effect of PU3",
@@ -153,6 +152,15 @@ addLayer("p", {
                 return hasUpgrade('p', 41)
             }
         },
+
+		43: {
+            title: "Particle Upgrade 13",
+            description: "Increase the effects of PU5.",
+            cost: new Decimal(1.5e11),
+            unlocked() {
+                return hasUpgrade('p', 42)
+            }
+        },
     },
 
     challenges: {
@@ -207,7 +215,7 @@ addLayer("m", {
     baseResource: "Atoms",
     baseAmount() {return player.points},
 
-    type: "static",
+    type: "normal",
     exponent: 0.1,
 
     gainMult() {
