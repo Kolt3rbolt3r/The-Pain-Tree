@@ -62,7 +62,7 @@ addLayer("p", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         },
         21: {
-            title: "Particlr Upgrade 4",
+            title: "Particle Upgrade 4",
             description: "2.5x atom gain",
             cost: new Decimal(30),
             unlocked() {
@@ -185,6 +185,56 @@ addLayer("p", {
 		if (hasChallenge('p', 12)) mult = mult.times(5)
 		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
+		if (hasMilestone('m', 11)) mult = mult.times(2)
         return mult
     },
+})
+
+addLayer("m", {
+    name: "Milestones",
+    symbol: "M",
+    position: 1,
+
+    startData() { return {
+        unlocked: true,
+        points: new Decimal(0),
+    }},
+
+    color: "#33944d",
+    requires: new Decimal(1e10),
+
+    resource: "Milestones",
+    baseResource: "Atoms",
+    baseAmount() {return player.points},
+
+    type: "static",
+    exponent: 0.1,
+
+    gainMult() {
+        mult = new Decimal(1)
+
+        return mult
+    },
+
+    gainExp() {
+        return new Decimal(1)
+    },
+
+    row: 0,
+
+	milestones: {
+    1: {
+        requirementDescription: "1 Milestone",
+        effectDescription: "Double Particle gain",
+        done() {return player.m.points.gte(1)}
+    },
+
+    2: {
+        requirementDescription: "3 Milestones",
+        effectDescription: "Double Atom gain",
+        done() {return player.m.points.gte(3)}
+    },
+},
+
+    layerShown(){return true},
 })
