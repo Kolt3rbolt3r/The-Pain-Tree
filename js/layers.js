@@ -295,7 +295,7 @@ addLayer("ma", {
     baseAmount() {return player.p.points},
 
     type: "static",
-    exponent: 0.25,
+    exponent: 0.1,
 
     row: 1,
 
