@@ -281,6 +281,11 @@ addLayer("m", {
         effectDescription: "PU3 is upgraded again.",
         done() {return player.m.points.gte(500)}
     },
+	4: {
+        requirementDescription: "1000 Milestones",
+        effectDescription: "2x Matter gain.",
+        done() {return player.m.points.gte(500)}
+    },
 },
 
     layerShown(){return true},
@@ -329,5 +334,10 @@ addLayer("ma", {
 
     branches: ["p"],
 
+	gainMult() { // Calculate the multiplier for main currency from bonuses
+        let mult = new Decimal(1)
+		if (hasMilestone('m', 4)) mult = mult.times(2)
+			return mult
+    },
     layerShown(){return hasUpgrade('p', 44)},
 })
