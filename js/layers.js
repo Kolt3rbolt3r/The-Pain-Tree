@@ -20,6 +20,11 @@ addLayer("p", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
+	doReset(resettingLayer) {
+    if (resettingLayer == "ma" && hasUpgrade('ma', 12)) {
+        layerDataReset(this.layer, ["upgrades"])
+    }
+},
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -250,14 +255,6 @@ addLayer("m", {
         return new Decimal(1)
     },
 
-	onPrestige(gain) {
-    if (hasUpgrade('ma', 12)) {
-        layerDataReset('p', ['upgrades'])
-    } else {
-        layerDataReset('p')
-    }
-},
-
     row: 0,
 
 	doReset(resettingLayer) {
@@ -284,7 +281,7 @@ addLayer("m", {
 	4: {
         requirementDescription: "1000 Milestones",
         effectDescription: "2x Matter gain.",
-        done() {return player.m.points.gte(500)}
+        done() {return player.m.points.gte(1000)}
     },
 },
 
