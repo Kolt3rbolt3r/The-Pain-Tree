@@ -258,14 +258,6 @@ addLayer("m", {
         return new Decimal(1)
     },
 
-	onPrestige(gain) {
-    if (hasUpgrade('ma', 12)) {
-        layerDataReset('p', ['upgrades'])
-    } else {
-        layerDataReset('p')
-    }
-},
-
     row: 0,
 
 	doReset(resettingLayer) {
