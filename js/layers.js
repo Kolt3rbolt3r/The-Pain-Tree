@@ -163,7 +163,7 @@ addLayer("p", {
             }
         },
 
-		43: {
+		44: {
             title: "Finally... a new layer.",
             description: "Unlocks the next layer: Matter.",
             cost: new Decimal(5e15),
@@ -301,5 +301,5 @@ addLayer("ma", {
 
     branches: ["p"],
 
-    layerShown(){return true},
+    layerShown(){return hasUpgrade('p', 44)},
 })
