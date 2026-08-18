@@ -319,7 +319,7 @@ addLayer("ma", {
 		description: "Ok I'm sorry, have automation. Gain 25% of your currently collectable Particles.",
 		cost: new Decimal(1),
 		effect() {
-			return getResetGain("p").times(0.25)
+			return layers.p.getResetGain().times(0.1)
 		},
 		effectDisplay() {
 			return format(upgradeEffect(this.layer, this.id))
