@@ -20,11 +20,6 @@ addLayer("p", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-	doReset(resettingLayer) {
-    if (resettingLayer == "ma" && hasUpgrade('ma', 12)) {
-        layerDataReset(this.layer, ["upgrades"])
-    }
-},
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -170,7 +165,7 @@ addLayer("p", {
 
 		44: {
             title: "Finally... a new layer.",
-            description: "Unlocks the next layer: Matter.",
+            description: "Unlocks the next layer: Matter. Its short :3",
             cost: new Decimal(5e15),
             unlocked() {
                 return hasUpgrade('p', 43)
@@ -255,6 +250,14 @@ addLayer("m", {
         return new Decimal(1)
     },
 
+	onPrestige(gain) {
+    if (hasUpgrade('ma', 12)) {
+        layerDataReset('p', ['upgrades'])
+    } else {
+        layerDataReset('p')
+    }
+},
+
     row: 0,
 
 	doReset(resettingLayer) {
@@ -280,8 +283,8 @@ addLayer("m", {
     },
 	4: {
         requirementDescription: "1000 Milestones",
-        effectDescription: "2x Matter gain.",
-        done() {return player.m.points.gte(1000)}
+        effectDescription: "1.5x Matter gain.",
+        done() {return player.m.points.gte(500)}
     },
 },
 
@@ -322,23 +325,18 @@ addLayer("ma", {
             return format(upgradeEffect(this.layer, this.id))+"x"
         }
     },
-    12: {
-        title: "Particle Preservation",
-        description: "Particle upgrades are no longer lost when Matter is gained.",
-        cost: new Decimal(6),
-    },
-    13: {
-        title: "More upgrades please!",
-        description: "Unlocks new particle upgrades.",
-        cost: new Decimal(6),
-    },
-},
+	12: {
+		title: "Particle Preservation",
+		description: "Particle upgrades are no longer lost when Matter is gained.",
+		cost: new Decimal(6),
+		},
+	},
 
     branches: ["p"],
 
 	gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
-		if (hasMilestone('m', 4)) mult = mult.times(2)
+		if (hasMilestone('m', 4)) mult = mult.times(1.5)
 			return mult
     },
     layerShown(){return hasUpgrade('p', 44)},
