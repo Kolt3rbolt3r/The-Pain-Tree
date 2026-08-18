@@ -65,7 +65,7 @@ addLayer("p", {
             effect() {
                 let boost = 0
                 if (hasUpgrade('p', 23)) boost = boost + 0.25
-				if (hasMilestone('m', 3)) boost = boost + 0.15
+				if (hasMilestone('m', 3)) boost = boost + 0.07
         return player[this.layer].points.add(1).pow(0.5 + boost)
              },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
@@ -185,8 +185,8 @@ addLayer("p", {
     11: {
         name: "Particle Challenge 1",
         challengeDescription: "Atoms are square-rooted",
-        canComplete: function() {return player.points.gte(3000)},
-        goalDescription: "3,000 Points",
+        canComplete: function() {return player.points.gte(5000)},
+        goalDescription: "5,000 Points",
         rewardDescription: "10x particle points gain",
         unlocked() {
             return true
@@ -194,7 +194,7 @@ addLayer("p", {
     },
     12: {
         name: "Particle Challenge 2",
-        challengeDescription: "Unknown Point gain is cube-rooted",
+        challengeDescription: "Atom gain is cube-rooted",
         canComplete: function() {return player.points.gte(50000)},
         goalDescription: "50,000 Points",
         rewardDescription: "5x particle points gain",
@@ -204,10 +204,20 @@ addLayer("p", {
     },
 	21: {
         name: "Particle Challenge 3",
-        challengeDescription: "Unknown Point gain is rooted to the 4th.",
+        challengeDescription: "Atom gain is rooted to the 4th.",
         canComplete: function() {return player.points.gte(250000)},
         goalDescription: "250,000 Points",
         rewardDescription: "2.5x particle points gain",
+        unlocked() {
+            return true
+        }
+    },
+	22: {
+        name: "Particle Challenge 4",
+        challengeDescription: "Atom gain is rooted to the 6th...",
+        canComplete: function() {return player.points.gte(1000000)},
+        goalDescription: "1,000,000 Atoms",
+        rewardDescription: "1.75x particle points gain",
         unlocked() {
             return true
         }
@@ -220,6 +230,7 @@ addLayer("p", {
         if (hasChallenge('p', 11)) mult = mult.times(10)
 		if (hasChallenge('p', 12)) mult = mult.times(5)
 		if (hasChallenge('p', 21)) mult = mult.times(2.5)
+		if (hasChallenge('p', 22)) mult = mult.times(1.75)
 		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
 		if (hasMilestone('m', 1)) mult = mult.times(2)
