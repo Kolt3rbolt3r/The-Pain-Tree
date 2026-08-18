@@ -216,7 +216,6 @@ addLayer("p", {
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
 		if (hasMilestone('m', 1)) mult = mult.times(2)
 		if (hasUpgrade('ma', 11)) mult = mult.times(upgradeEffect('ma', 11))
-		if (hasUpgrade('ma', 12)) mult = mult.add(upgradeEffect('ma', 12))
         return mult
     },
 })
@@ -311,20 +310,9 @@ addLayer("ma", {
         },
         effectDisplay() {
             return format(upgradeEffect(this.layer, this.id))+"x"
-        }
+        },
     },
-
-	12: {
-		title: "Matter Upgrade 2",
-		description: "Ok I'm sorry, have automation. Gain 25% of your currently collectable Particles.",
-		cost: new Decimal(1),
-		effect() {
-			return getResetGain("p").times(0.25)
-		},
-		effectDisplay() {
-			return format(upgradeEffect(this.layer, this.id))
-		},
-	},
+},
 
     branches: ["p"],
 
