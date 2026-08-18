@@ -185,7 +185,7 @@ addLayer("p", {
             return true
         }
     },
-	12: {
+	13: {
         name: "Particle Challenge 3",
         challengeDescription: "Unknown Point gain is rooted to the 4th.",
         canComplete: function() {return player.points.gte(250000)},
