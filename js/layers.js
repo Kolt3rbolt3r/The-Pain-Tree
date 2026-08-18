@@ -321,6 +321,7 @@ addLayer("ma", {
 		title: "Particle Preservation",
 		description: "Particle upgrades are no longer lost when Matter is gained.",
 		cost: new Decimal(1),
+		},
 	},
 
     branches: ["p"],
