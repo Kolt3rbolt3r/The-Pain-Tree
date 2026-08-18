@@ -157,7 +157,7 @@ addLayer("p", {
 		43: {
             title: "Particle Upgrade 13",
             description: "Increase the effects of PU5.",
-            cost: new Decimal(1.5e11),
+            cost: new Decimal(2.5e12),
             unlocked() {
                 return hasUpgrade('p', 42)
             }
@@ -323,7 +323,7 @@ addLayer("ma", {
 	12: {
 		title: "Particle Preservation",
 		description: "Particle upgrades are no longer lost when Matter is gained.",
-		cost: new Decimal(1),
+		cost: new Decimal(6),
 		},
 	},
 
