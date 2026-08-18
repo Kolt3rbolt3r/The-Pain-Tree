@@ -276,3 +276,30 @@ addLayer("m", {
 
     layerShown(){return true},
 })
+
+addLayer("ma", {
+    name: "Matter",
+    symbol: "MA",
+    position: 0,
+
+    startData() { return {
+        unlocked: true,
+        points: new Decimal(0),
+    }},
+
+    color: "#ffffff",
+
+    requires: new Decimal(1e12),
+    resource: "Matter",
+    baseResource: "Particles",
+    baseAmount() {return player.p.points},
+
+    type: "static",
+    exponent: 0.25,
+
+    row: 1,
+
+    branches: ["p"],
+
+    layerShown(){return true},
+})
