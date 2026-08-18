@@ -37,7 +37,7 @@ addLayer("p", {
             cost: new Decimal(1)
         },
         12: {
-            title: "Particle Upgrade 1",
+            title: "Oh look! A doubler! Hopefully this doesn't get overused...",
             description: "Doubles atom gain",
             cost: new Decimal(1),
             unlocked() {
@@ -45,7 +45,7 @@ addLayer("p", {
             }
         },
         13: {
-            title: "Particle Upgrade 2",
+            title: "Yay! Triple!",
             description: "Triples atom gain",
             cost: new Decimal(3),
             unlocked() {
@@ -53,7 +53,7 @@ addLayer("p", {
             }
         },
         14: {
-            title: "Particle Upgrade 3",
+            title: "You'll need it.",
             description: "Particles boost Atom gain",
             cost: new Decimal(10),
             unlocked() {
@@ -68,7 +68,7 @@ addLayer("p", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         },
         21: {
-            title: "Particle Upgrade 4",
+            title: "Close, but better than a 2x!",
             description: "2.5x atom gain",
             cost: new Decimal(30),
             unlocked() {
@@ -76,7 +76,7 @@ addLayer("p", {
             }
         },
         22: {
-    title: "Particle Upgrade 5",
+    title: "You'll also need this.",
     description: "Atoms boost Particle gain",
     cost: new Decimal(65),
     unlocked() {
@@ -89,7 +89,7 @@ addLayer("p", {
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
 },
         23: {
-            title: "Particle Upgrade 6",
+            title: "Cool upgrade just got cooler.",
             description: "Increases the effect of PU3",
             cost: new Decimal(250),
             unlocked() {
@@ -97,7 +97,7 @@ addLayer("p", {
             }
         },
         24: {
-            title: "Particle Upgrade 7",
+            title: "That's new.",
             description: "5x Particle gain",
             cost: new Decimal(1000),
             unlocked() {
@@ -105,7 +105,7 @@ addLayer("p", {
             }
         },
         31: {
-            title: "Particle Upgrade 8",
+            title: ":>",
             description: "Here. Have a 1x multiplier. :Troll:",
             cost: new Decimal(12500),
             unlocked() {
@@ -113,7 +113,7 @@ addLayer("p", {
             }
         },
         32: {
-            title: "Particle Upgrade 9",
+            title: "Idk what to call this one.",
             description: "Atoms boost itself",
             cost: new Decimal("1e6"),
             unlocked() {
@@ -127,7 +127,7 @@ addLayer("p", {
             
         },
         33: {
-            title: "Particle Upgrade 10",
+            title: "Or this one...",
             description: "Particles points boost itself",
             cost: new Decimal("1.5e7"),
             unlocked() {
@@ -142,7 +142,7 @@ addLayer("p", {
         },
 
 		41: {
-            title: "Particle Upgrade 11",
+            title: "Not old yet I hope? This is only the second one.",
             description: "Doubles atom gain... again.",
             cost: new Decimal(1e9),
             unlocked() {
@@ -151,7 +151,7 @@ addLayer("p", {
         },
 
 		42: {
-            title: "Particle Upgrade 12",
+            title: "We love particles!",
             description: "Double Particle gain.",
             cost: new Decimal(1.5e11),
             unlocked() {
@@ -160,7 +160,7 @@ addLayer("p", {
         },
 
 		43: {
-            title: "Particle Upgrade 13",
+            title: "PU5 upgrade bc yes",
             description: "Increase the effects of PU5.",
             cost: new Decimal(1.5e11),
             unlocked() {
@@ -307,7 +307,7 @@ addLayer("ma", {
 
 	upgrades: {
     11: {
-        title: "Matter Upgrade 1",
+        title: "Matter matters!",
         description: "Matter multiplies Particle gain.",
         cost: new Decimal(2),
         effect() {
@@ -320,6 +320,12 @@ addLayer("ma", {
 	12: {
 		title: "Particle Preservation",
 		description: "Particle upgrades are no longer lost when Matter is gained.",
+		cost: new Decimal(1),
+		}
+	},
+	13: {
+		title: "You want some Atoms with that?",
+		description: "Yet another 2x to Atoms..",
 		cost: new Decimal(1),
 		},
 	},
