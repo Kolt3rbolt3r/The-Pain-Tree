@@ -300,6 +300,14 @@ addLayer("ma", {
 
     row: 1,
 
+	doReset(resettingLayer) {
+    if (hasUpgrade("ma", 12)) {
+        layerDataReset("p", ["upgrades"])
+    } else {
+        layerDataReset("p")
+    }
+},
+
 	upgrades: {
     11: {
         title: "Matter Upgrade 1",
@@ -310,9 +318,14 @@ addLayer("ma", {
         },
         effectDisplay() {
             return format(upgradeEffect(this.layer, this.id))+"x"
-        },
+        }
     },
-},
+	12: {
+		title: "Particle Preservation",
+		description: "Particle upgrades are no longer lost when Matter is gained.",
+		cost: new Decimal(1),
+		},
+	},
 
     branches: ["p"],
 
