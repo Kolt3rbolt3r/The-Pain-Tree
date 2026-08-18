@@ -55,6 +55,7 @@ function getPointGen() {
 	if (inChallenge('p', 11)) gain = gain.sqrt()
 	if (inChallenge('p', 12)) gain = gain.cbrt()
 	if (inChallenge('p', 21)) gain = gain.root(4)
+	if (inChallenge('p', 22)) gain = gain.root(6)
 
 	return gain
 }
