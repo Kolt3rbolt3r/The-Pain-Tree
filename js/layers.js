@@ -191,7 +191,7 @@ addLayer("p", {
     },
     12: {
         name: "Particle Challenge 2",
-        challengeDescription: "Unknown Point gain is cube-rooted",
+        challengeDescription: "Atom gain is cube-rooted",
         canComplete: function() {return player.points.gte(50000)},
         goalDescription: "50,000 Points",
         rewardDescription: "5x particle points gain",
@@ -201,7 +201,7 @@ addLayer("p", {
     },
 	21: {
         name: "Particle Challenge 3",
-        challengeDescription: "Unknown Point gain is rooted to the 4th.",
+        challengeDescription: "Atom gain is rooted to the 4th.",
         canComplete: function() {return player.points.gte(250000)},
         goalDescription: "250,000 Points",
         rewardDescription: "2.5x particle points gain",
@@ -216,7 +216,7 @@ addLayer("p", {
         if (hasUpgrade('p', 24)) mult = mult.times(5)
         if (hasChallenge('p', 11)) mult = mult.times(10)
 		if (hasChallenge('p', 12)) mult = mult.times(5)
-		if (hasChallenge('p', 13)) mult = mult.times(2.5)
+		if (hasChallenge('p', 21)) mult = mult.times(2.5)
 		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
 		if (hasMilestone('m', 1)) mult = mult.times(2)
@@ -315,13 +315,11 @@ addLayer("ma", {
         },
         effectDisplay() {
             return format(upgradeEffect(this.layer, this.id))+"x"
-        }
-    },
+	},
 	12: {
 		title: "Particle Preservation",
 		description: "Particle upgrades are no longer lost when Matter is gained.",
 		cost: new Decimal(1),
-		}
 	},
 	13: {
 		title: "You want some Atoms with that?",
