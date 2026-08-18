@@ -162,6 +162,15 @@ addLayer("p", {
                 return hasUpgrade('p', 42)
             }
         },
+
+		43: {
+            title: "Finally... a new layer.",
+            description: "Unlocks the next layer: Matter.",
+            cost: new Decimal(5e15),
+            unlocked() {
+                return hasUpgrade('p', 43)
+            }
+        },
     },
 
     challenges: {
@@ -241,6 +250,10 @@ addLayer("m", {
     },
 
     row: 0,
+
+	doReset(resettingLayer) {
+    layerDataReset(this.layer, ["points"])
+},
 
 	milestones: {
     1: {
