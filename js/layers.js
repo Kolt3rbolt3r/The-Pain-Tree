@@ -20,6 +20,13 @@ addLayer("p", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
+	doReset(resettingLayer) {
+    if (hasUpgrade('ma', 12)) {
+        layerDataReset(this.layer, ["upgrades"])
+    } else {
+        layerDataReset(this.layer)
+    }
+	},
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -299,14 +306,6 @@ addLayer("ma", {
     exponent: 0.1,
 
     row: 1,
-
-	doReset(resettingLayer) {
-    if (hasUpgrade("ma", 12)) {
-        layerDataReset("p", ["upgrades"])
-    } else {
-        layerDataReset("p")
-    }
-},
 
 	upgrades: {
     11: {
