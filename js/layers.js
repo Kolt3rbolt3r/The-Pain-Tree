@@ -21,7 +21,7 @@ addLayer("p", {
         return new Decimal(1)
     },
 	doReset(resettingLayer) {
-    if (resettingLayer == "ma" && hasUpgrade('ma', 12)) {
+    if (hasUpgrade('ma', 12)) {
         layerDataReset(this.layer, ["upgrades"])
     }
 	},
