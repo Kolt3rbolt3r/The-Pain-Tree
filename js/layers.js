@@ -20,6 +20,14 @@ addLayer("p", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
+	doReset(resettingLayer) {
+    if (resettingLayer == "ma") {
+        let keep = []
+        if (hasUpgrade('ma', 12)) keep.push("upgrades")
+        if (hasMilestone('m', 5)) keep.push("challenges")
+        layerDataReset(this.layer, keep)
+    }
+},
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -284,7 +292,12 @@ addLayer("m", {
 	4: {
         requirementDescription: "1000 Milestones",
         effectDescription: "1.5x Matter gain.",
-        done() {return player.m.points.gte(500)}
+        done() {return player.m.points.gte(1000)}
+    },
+	5: {
+        requirementDescription: "50,000 Milestones",
+        effectDescription: "Particle challenges are now kept too!",
+        done() {return player.m.points.gte(50000)}
     },
 },
 
@@ -327,7 +340,7 @@ addLayer("ma", {
     },
 	12: {
 		title: "Particle Preservation",
-		description: "Particle upgrades are no longer lost when Matter is gained.",
+		description: "Particle upgrades are no longer lost.",
 		cost: new Decimal(6),
 		},
 	},
