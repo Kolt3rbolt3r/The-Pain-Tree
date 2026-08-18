@@ -215,6 +215,7 @@ addLayer("p", {
 		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
 		if (hasMilestone('m', 1)) mult = mult.times(2)
+		if (hasUpgrade('ma', 11)) mult = mult.times(upgradeEffect('ma', 11))
         return mult
     },
 })
@@ -289,15 +290,29 @@ addLayer("ma", {
 
     color: "#ffffff",
 
-    requires: new Decimal(1e12),
+    requires: new Decimal(1e15),
     resource: "Matter",
     baseResource: "Particles",
     baseAmount() {return player.p.points},
 
-    type: "static",
+    type: "normal",
     exponent: 0.1,
 
     row: 1,
+
+	upgrades: {
+    11: {
+        title: "Matter Upgrade 1",
+        description: "Matter multiplies Particle gain.",
+        cost: new Decimal(2),
+        effect() {
+            return player.ma.points.add(1).pow(0.1)
+        },
+        effectDisplay() {
+            return format(upgradeEffect(this.layer, this.id))+"x"
+        },
+    },
+},
 
     branches: ["p"],
 
