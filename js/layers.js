@@ -21,10 +21,8 @@ addLayer("p", {
         return new Decimal(1)
     },
 	doReset(resettingLayer) {
-    if (hasUpgrade('ma', 12)) {
+    if (resettingLayer == "ma" && hasUpgrade('ma', 12)) {
         layerDataReset(this.layer, ["upgrades"])
-    } else {
-        layerDataReset(this.layer)
     }
 	},
     row: 0, // Row the layer is in on the tree (0 is the first row)
