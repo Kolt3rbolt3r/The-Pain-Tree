@@ -37,7 +37,7 @@ addLayer("p", {
             cost: new Decimal(1)
         },
         12: {
-            title: "Oh look! A doubler! Hopefully this doesn't get overused...",
+            title: "Particle Upgrade 1",
             description: "Doubles atom gain",
             cost: new Decimal(1),
             unlocked() {
@@ -45,7 +45,7 @@ addLayer("p", {
             }
         },
         13: {
-            title: "Yay! Triple!",
+            title: "Particle Upgrade 2",
             description: "Triples atom gain",
             cost: new Decimal(3),
             unlocked() {
@@ -53,7 +53,7 @@ addLayer("p", {
             }
         },
         14: {
-            title: "You'll need it.",
+            title: "Particle Upgrade 3",
             description: "Particles boost Atom gain",
             cost: new Decimal(10),
             unlocked() {
@@ -68,7 +68,7 @@ addLayer("p", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         },
         21: {
-            title: "Close, but better than a 2x!",
+            title: "Particle Upgrade 4",
             description: "2.5x atom gain",
             cost: new Decimal(30),
             unlocked() {
@@ -76,7 +76,7 @@ addLayer("p", {
             }
         },
         22: {
-    title: "You'll also need this.",
+    title: "Particle Upgrade 5",
     description: "Atoms boost Particle gain",
     cost: new Decimal(65),
     unlocked() {
@@ -89,7 +89,7 @@ addLayer("p", {
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
 },
         23: {
-            title: "Cool upgrade just got cooler.",
+            title: "Particle Upgrade 6",
             description: "Increases the effect of PU3",
             cost: new Decimal(250),
             unlocked() {
@@ -97,7 +97,7 @@ addLayer("p", {
             }
         },
         24: {
-            title: "That's new.",
+            title: "Particle Upgrade 7",
             description: "5x Particle gain",
             cost: new Decimal(1000),
             unlocked() {
@@ -105,7 +105,7 @@ addLayer("p", {
             }
         },
         31: {
-            title: ":>",
+            title: "Particle Upgrade 8",
             description: "Here. Have a 1x multiplier. :Troll:",
             cost: new Decimal(12500),
             unlocked() {
@@ -113,7 +113,7 @@ addLayer("p", {
             }
         },
         32: {
-            title: "Idk what to call this one.",
+            title: "Particle Upgrade 9",
             description: "Atoms boost itself",
             cost: new Decimal("1e6"),
             unlocked() {
@@ -127,7 +127,7 @@ addLayer("p", {
             
         },
         33: {
-            title: "Or this one...",
+            title: "Particle Upgrade 10",
             description: "Particles points boost itself",
             cost: new Decimal("1.5e7"),
             unlocked() {
@@ -142,7 +142,7 @@ addLayer("p", {
         },
 
 		41: {
-            title: "Not old yet I hope? This is only the second one.",
+            title: "Particle Upgrade 11",
             description: "Doubles atom gain... again.",
             cost: new Decimal(1e9),
             unlocked() {
@@ -151,7 +151,7 @@ addLayer("p", {
         },
 
 		42: {
-            title: "We love particles!",
+            title: "Particle Upgrade 12",
             description: "Double Particle gain.",
             cost: new Decimal(1.5e11),
             unlocked() {
@@ -160,7 +160,7 @@ addLayer("p", {
         },
 
 		43: {
-            title: "PU5 upgrade bc yes",
+            title: "Particle Upgrade 13",
             description: "Increase the effects of PU5.",
             cost: new Decimal(1.5e11),
             unlocked() {
@@ -191,7 +191,7 @@ addLayer("p", {
     },
     12: {
         name: "Particle Challenge 2",
-        challengeDescription: "Atom gain is cube-rooted",
+        challengeDescription: "Unknown Point gain is cube-rooted",
         canComplete: function() {return player.points.gte(50000)},
         goalDescription: "50,000 Points",
         rewardDescription: "5x particle points gain",
@@ -201,7 +201,7 @@ addLayer("p", {
     },
 	21: {
         name: "Particle Challenge 3",
-        challengeDescription: "Atom gain is rooted to the 4th.",
+        challengeDescription: "Unknown Point gain is rooted to the 4th.",
         canComplete: function() {return player.points.gte(250000)},
         goalDescription: "250,000 Points",
         rewardDescription: "2.5x particle points gain",
@@ -216,7 +216,7 @@ addLayer("p", {
         if (hasUpgrade('p', 24)) mult = mult.times(5)
         if (hasChallenge('p', 11)) mult = mult.times(10)
 		if (hasChallenge('p', 12)) mult = mult.times(5)
-		if (hasChallenge('p', 21)) mult = mult.times(2.5)
+		if (hasChallenge('p', 13)) mult = mult.times(2.5)
 		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
 		if (hasMilestone('m', 1)) mult = mult.times(2)
@@ -307,7 +307,7 @@ addLayer("ma", {
 
 	upgrades: {
     11: {
-        title: "Matter matters!",
+        title: "Matter Matters!",
         description: "Matter multiplies Particle gain.",
         cost: new Decimal(2),
         effect() {
@@ -315,17 +315,12 @@ addLayer("ma", {
         },
         effectDisplay() {
             return format(upgradeEffect(this.layer, this.id))+"x"
-	},
+        }
+    },
 	12: {
 		title: "Particle Preservation",
 		description: "Particle upgrades are no longer lost when Matter is gained.",
 		cost: new Decimal(1),
-	},
-	13: {
-		title: "You want some Atoms with that?",
-		description: "Yet another 2x to Atoms..",
-		cost: new Decimal(1),
-		},
 	},
 
     branches: ["p"],
