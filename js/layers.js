@@ -185,7 +185,7 @@ addLayer("p", {
             description: "1.5x Atom gain.",
             cost: new Decimal(1e23),
             unlocked() {
-                return hasMilestone('m', 4)
+                return hasMilestone('m', 4) && hasUpgrade('p', 44)
             }
         },
 
@@ -194,7 +194,7 @@ addLayer("p", {
             description: "1.5x Particle gain.",
             cost: new Decimal(1e24),
             unlocked() {
-                return hasMilestone('m', 4)
+                return hasMilestone('m', 4) && hasUpgrade('p', 51)
             }
         },
 
@@ -203,7 +203,7 @@ addLayer("p", {
             description: "2x Milestone gain.",
             cost: new Decimal(1e26),
             unlocked() {
-                return hasMilestone('m', 4)
+                return hasMilestone('m', 4) && hasUpgrade('p', 52)
             }
         },
     },
