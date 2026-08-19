@@ -183,7 +183,7 @@ addLayer("p", {
 		51: {
             title: "Particle Upgrade 14.",
             description: "1.5x Atom gain.",
-            cost: new Decimal(5e15),
+            cost: new Decimal(1e23),
             unlocked() {
                 return hasMilestone('m', 4)
             }
@@ -192,7 +192,7 @@ addLayer("p", {
 		52: {
             title: "Particle Upgrade 15.",
             description: "1.5x Particle gain.",
-            cost: new Decimal(5e15),
+            cost: new Decimal(1e24),
             unlocked() {
                 return hasMilestone('m', 4)
             }
@@ -201,7 +201,7 @@ addLayer("p", {
 		53: {
             title: "Particle Upgrade 16.",
             description: "2x Milestone gain.",
-            cost: new Decimal(5e15),
+            cost: new Decimal(1e26),
             unlocked() {
                 return hasMilestone('m', 4)
             }
