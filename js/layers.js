@@ -242,8 +242,8 @@ addLayer("p", {
 	22: {
         name: "Particle Challenge 4",
         challengeDescription: "Atom gain is rooted to the 6th...",
-        canComplete: function() {return player.points.gte(1000000)},
-        goalDescription: "1,000,000 Atoms",
+        canComplete: function() {return player.points.gte(2500000)},
+        goalDescription: "2,500,000 Atoms",
         rewardDescription: "1.75x particle points gain",
         unlocked() {
             return true
