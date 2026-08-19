@@ -179,6 +179,33 @@ addLayer("p", {
                 return hasUpgrade('p', 43)
             }
         },
+
+		51: {
+            title: "Particle Upgrade 14.",
+            description: "1.5x Atom gain.",
+            cost: new Decimal(5e15),
+            unlocked() {
+                return hasMilestone('m', 4)
+            }
+        },
+
+		52: {
+            title: "Particle Upgrade 15.",
+            description: "1.5x Particle gain.",
+            cost: new Decimal(5e15),
+            unlocked() {
+                return hasMilestone('m', 4)
+            }
+        },
+
+		53: {
+            title: "Particle Upgrade 16.",
+            description: "2x Milestone gain.",
+            cost: new Decimal(5e15),
+            unlocked() {
+                return hasMilestone('m', 4)
+            }
+        },
     },
 
     challenges: {
@@ -233,6 +260,7 @@ addLayer("p", {
 		if (hasChallenge('p', 22)) mult = mult.times(1.75)
 		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
+		if (hasUpgrade('m', 52)) mult = mult.times(1.5)
 		if (hasMilestone('m', 1)) mult = mult.times(2)
 		if (hasUpgrade('ma', 11)) mult = mult.times(upgradeEffect('ma', 11))
         return mult
@@ -261,7 +289,8 @@ addLayer("m", {
 
     gainMult() {
         mult = new Decimal(1)
-
+		if (hasUpgrade('m', 53)) mult = mult.times(2)
+		
         return mult
     },
 
