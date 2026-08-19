@@ -327,9 +327,9 @@ addLayer("m", {
         done() {return player.m.points.gte(1000)}
     },
 	5: {
-        requirementDescription: "50,000 Milestones",
+        requirementDescription: "15,000 Milestones",
         effectDescription: "Particle challenges are now kept too!",
-        done() {return player.m.points.gte(50000)}
+        done() {return player.m.points.gte(15000)}
     },
 },
 
