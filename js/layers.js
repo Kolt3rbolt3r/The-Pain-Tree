@@ -260,7 +260,7 @@ addLayer("p", {
 		if (hasChallenge('p', 22)) mult = mult.times(1.75)
 		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
-		if (hasUpgrade('m', 52)) mult = mult.times(1.5)
+		if (hasUpgrade('p', 52)) mult = mult.times(1.5)
 		if (hasMilestone('m', 1)) mult = mult.times(2)
 		if (hasUpgrade('ma', 11)) mult = mult.times(upgradeEffect('ma', 11))
         return mult
@@ -289,7 +289,7 @@ addLayer("m", {
 
     gainMult() {
         mult = new Decimal(1)
-		if (hasUpgrade('m', 53)) mult = mult.times(2)
+		if (hasUpgrade('p', 53)) mult = mult.times(2)
 		
         return mult
     },
