@@ -66,6 +66,7 @@ addLayer("p", {
                 let boost = 0
                 if (hasUpgrade('p', 23)) boost = boost + 0.25
 				if (hasMilestone('m', 3)) boost = boost + 0.07
+				if (hasChallenge('p', 21)) boost = boost + 0.05
         return player[this.layer].points.add(1).pow(0.5 + boost)
              },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
@@ -185,7 +186,7 @@ addLayer("p", {
             description: "1.5x Atom gain.",
             cost: new Decimal(1e23),
             unlocked() {
-                return hasMilestone('m', 4) && hasUpgrade('p', 44)
+                return hasMilestone('m', 4)
             }
         },
 
@@ -194,7 +195,7 @@ addLayer("p", {
             description: "1.5x Particle gain.",
             cost: new Decimal(1e24),
             unlocked() {
-                return hasMilestone('m', 4) && hasUpgrade('p', 51)
+                return hasMilestone('m', 4)
             }
         },
 
@@ -203,7 +204,7 @@ addLayer("p", {
             description: "2x Milestone gain.",
             cost: new Decimal(1e26),
             unlocked() {
-                return hasMilestone('m', 4) && hasUpgrade('p', 52)
+                return hasMilestone('m', 4)
             }
         },
     },
@@ -234,7 +235,7 @@ addLayer("p", {
         challengeDescription: "Atom gain is rooted to the 4th.",
         canComplete: function() {return player.points.gte(250000)},
         goalDescription: "250,000 Points",
-        rewardDescription: "2.5x particle points gain",
+        rewardDescription: "Another boost to PU3.",
         unlocked() {
             return true
         }
@@ -244,7 +245,7 @@ addLayer("p", {
         challengeDescription: "Atom gain is rooted to the 6th...",
         canComplete: function() {return player.points.gte(2500000)},
         goalDescription: "2,500,000 Atoms",
-        rewardDescription: "1.75x particle points gain",
+        rewardDescription: "2x to Milestones. ",
         unlocked() {
             return true
         }
@@ -256,8 +257,6 @@ addLayer("p", {
         if (hasUpgrade('p', 24)) mult = mult.times(5)
         if (hasChallenge('p', 11)) mult = mult.times(10)
 		if (hasChallenge('p', 12)) mult = mult.times(5)
-		if (hasChallenge('p', 21)) mult = mult.times(2.5)
-		if (hasChallenge('p', 22)) mult = mult.times(1.75)
 		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
 		if (hasUpgrade('p', 42)) mult = mult.times(2)
 		if (hasUpgrade('p', 52)) mult = mult.times(1.5)
@@ -290,6 +289,7 @@ addLayer("m", {
     gainMult() {
         mult = new Decimal(1)
 		if (hasUpgrade('p', 53)) mult = mult.times(2)
+		if (hasMilestone('p' 22)) mult = mult.times(2)
 		
         return mult
     },
@@ -323,7 +323,7 @@ addLayer("m", {
     },
 	4: {
         requirementDescription: "1000 Milestones",
-        effectDescription: "1.5x Matter gain.",
+        effectDescription: "1.5x Matter gain (also some new upgrades).",
         done() {return player.m.points.gte(1000)}
     },
 	5: {
