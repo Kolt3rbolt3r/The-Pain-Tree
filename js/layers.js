@@ -4,7 +4,7 @@ addLayer("p", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-		points: new Decimal(0),
+		points: new Decimal(1),
     }}, // Sets prestige points at the start
     color: "#808080",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
@@ -287,7 +287,7 @@ addLayer("m", {
     gainMult() {
         mult = new Decimal(1)
 		if (hasUpgrade('p', 53)) mult = mult.times(2)
-		if (hasChallenge('p', 22)) mult = mult.times(2)
+		if (hasMilestone('p' 22)) mult = mult.times(2)
 		
         return mult
     },
@@ -326,7 +326,7 @@ addLayer("m", {
     },
 	5: {
         requirementDescription: "15,000 Milestones",
-        effectDescription: "Particle challenges are now kept!",
+        effectDescription: "Particle challenges are now kept too!",
         done() {return player.m.points.gte(15000)}
     },
 },
@@ -362,9 +362,7 @@ addLayer("ma", {
         description: "Matter multiplies Particle gain.",
         cost: new Decimal(2),
         effect() {
-			if (hasUpgrade('e', 1)) return player.ma.points.add(1).pow(0.15)
-			else
-				return player.ma.points.add(1).pow(0.1)
+            return player.ma.points.add(1).pow(0.1)
         },
         effectDisplay() {
             return format(upgradeEffect(this.layer, this.id))+"x"
@@ -385,58 +383,4 @@ addLayer("ma", {
 			return mult
     },
     layerShown(){return hasUpgrade('p', 44)},
-})
-
-addLayer("e", {
-    name: "Energy",
-    symbol: "E",
-    position: 1,
-
-    startData() { return {
-        unlocked: true,
-        points: new Decimal(0),
-    }},
-
-    color: "#f1c40f",
-
-    requires: new Decimal(50),
-    resource: "Energy",
-    baseResource: "Matter",
-    baseAmount() {return player.ma.points},
-
-    type: "normal",
-    exponent: 0.3,
-
-    row: 1,
-
-    onPrestige(gain) {
-        layerDataReset('ma')
-    },
-	    upgrades: {
-        11: {
-            title: "Energy!!",
-            description: "First Matter upgrade gets a small buff.",
-            cost: new Decimal(1)
-        },
-        12: {
-            title: "Idk yet lol",
-            description: "...",
-            cost: new Decimal(1),
-            unlocked() {
-                return true
-            }
-        },
-        13: {
-            title: "Idk yet lol",
-            description: "...",
-            cost: new Decimal(1),
-            unlocked() {
-                return true
-            }
-        },
-    },
-
-    branches: ["ma"],
-
-    layerShown(){return hasUpgrade('p', 45)},
 })
