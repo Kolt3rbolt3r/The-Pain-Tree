@@ -364,7 +364,9 @@ addLayer("ma", {
         description: "Matter multiplies Particle gain.",
         cost: new Decimal(2),
         effect() {
-            return player.ma.points.add(1).pow(0.1)
+			if (hasUpgrade('e', 11)) return player.ma.points.add(1).pow(0.15)
+			else
+				return player.ma.points.add(1).pow(0.1)
         },
         effectDisplay() {
             return format(upgradeEffect(this.layer, this.id))+"x"
@@ -416,7 +418,7 @@ addLayer("e", {
     upgrades: {
         11: {
             title: "Energy Upgrade 1",
-            description: "...",
+            description: "Small boost to the first matter upgrade.",
             cost: new Decimal(1)
         },
 
