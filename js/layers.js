@@ -21,13 +21,11 @@ addLayer("p", {
         return new Decimal(1)
     },
 	doReset(resettingLayer) {
-    if (resettingLayer == "ma") {
-        let keep = []
-        if (hasUpgrade('ma', 12)) keep.push("upgrades")
-        if (hasMilestone('m', 5)) keep.push("challenges")
-        layerDataReset(this.layer, keep)
-    }
-},
+		let keep = []
+		if (hasUpgrade('ma', 12)) keep.push("upgrades")
+		if (hasMilestone('m', 5)) keep.push("challenges")
+		layerDataReset(this.layer, keep)
+	},
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
