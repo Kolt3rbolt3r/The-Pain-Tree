@@ -262,6 +262,7 @@ addLayer("p", {
 		if (hasUpgrade('p', 52)) mult = mult.times(1.5)
 		if (hasMilestone('m', 1)) mult = mult.times(2)
 		if (hasUpgrade('ma', 11)) mult = mult.times(upgradeEffect('ma', 11))
+		if (hasUpgrade('e', 13)) mult = mult.times(upgradeEffect('e', 13))
         return mult
     },
 })
