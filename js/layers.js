@@ -6,7 +6,7 @@ addLayer("p", {
         unlocked: true,
 		points: new Decimal(1),
     }}, // Sets prestige points at the start
-    color: "#33944d",
+    color: "#808080",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "Particles", // Name of prestige currency
     baseResource: "Atoms", // Name of resource prestige is based on
@@ -276,7 +276,7 @@ addLayer("m", {
         points: new Decimal(0),
     }},
 
-    color: "#33944d",
+    color: "#B87333",
     requires: new Decimal(1e10),
 
     resource: "Milestones",
@@ -346,7 +346,7 @@ addLayer("ma", {
         points: new Decimal(0),
     }},
 
-    color: "#ffffff",
+    color: "#483D8B",
 
     requires: new Decimal(1e15),
     resource: "Matter",
