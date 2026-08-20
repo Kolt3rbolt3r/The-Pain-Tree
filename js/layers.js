@@ -276,7 +276,7 @@ addLayer("m", {
         points: new Decimal(0),
     }},
 
-    color: "#B87333",
+    color: "#483D8B",
     requires: new Decimal(1e10),
 
     resource: "Milestones",
@@ -346,7 +346,7 @@ addLayer("ma", {
         points: new Decimal(0),
     }},
 
-    color: "#483D8B",
+    color: "#B87333",
 
     requires: new Decimal(1e15),
     resource: "Matter",
