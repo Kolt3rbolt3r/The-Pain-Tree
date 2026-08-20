@@ -423,16 +423,27 @@ addLayer("e", {
         },
 
         12: {
-            title: "Energy Upgrade 2",
-            description: "...",
-            cost: new Decimal(1)
-        },
-
+    title: "Matter Efficiency",
+    description: "Matter boosts Energy gain.",
+    cost: new Decimal(5),
+    effect() {
+        return player.ma.points.add(1).pow(0.1)
+    },
+    effectDisplay() {
+        return format(upgradeEffect(this.layer, this.id))+"x"
+    }
+},
         13: {
-            title: "Energy Upgrade 3",
-            description: "...",
-            cost: new Decimal(1)
-        },
+    title: "Energetic Particles",
+    description: "Energy boosts Particle gain.",
+    cost: new Decimal(15),
+    effect() {
+        return player.e.points.add(1).pow(0.1)
+    },
+    effectDisplay() {
+        return format(upgradeEffect(this.layer, this.id))+"x"
+	}
+},
     },
 
     branches: ["ma"],
