@@ -174,7 +174,7 @@ addLayer("p", {
 
 		44: {
             title: "Finally... a new layer.",
-            description: "Unlocks the next layer: Matter. Its short :3",
+            description: "Unlocks the next 2 layers: Matter and Energy.",
             cost: new Decimal(5e15),
             unlocked() {
                 return hasUpgrade('p', 43)
@@ -384,5 +384,56 @@ addLayer("ma", {
 		if (hasMilestone('m', 4)) mult = mult.times(1.5)
 			return mult
     },
+    layerShown(){return hasUpgrade('p', 44)},
+})
+
+addLayer("e", {
+    name: "Energy",
+    symbol: "E",
+    position: 1,
+
+    startData() { return {
+        unlocked: true,
+        points: new Decimal(0),
+    }},
+
+    color: "#f1c40f",
+
+    requires: new Decimal(50),
+    resource: "Energy",
+    baseResource: "Matter",
+    baseAmount() {return player.ma.points},
+
+    type: "normal",
+    exponent: 0.3,
+
+    row: 1,
+
+    onPrestige(gain) {
+        layerDataReset('ma')
+    },
+
+    upgrades: {
+        11: {
+            title: "Energy Upgrade 1",
+            description: "...",
+            cost: new Decimal(1)
+        },
+
+        12: {
+            title: "Energy Upgrade 2",
+            description: "...",
+            cost: new Decimal(1)
+        },
+
+        13: {
+            title: "Energy Upgrade 3",
+            description: "...",
+            cost: new Decimal(1)
+        },
+    },
+
+    branches: ["ma"],
+
     layerShown(){return hasUpgrade('p', 44)},
 })
