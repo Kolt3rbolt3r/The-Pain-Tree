@@ -287,7 +287,7 @@ addLayer("m", {
     gainMult() {
         mult = new Decimal(1)
 		if (hasUpgrade('p', 53)) mult = mult.times(2)
-		if (hasMilestone('p' 22)) mult = mult.times(2)
+		if (hasChallenge('p', 22)) mult = mult.times(2)
 		
         return mult
     },
@@ -412,7 +412,7 @@ addLayer("e", {
     onPrestige(gain) {
         layerDataReset('ma')
     },
-	upgrades: {
+	    upgrades: {
         11: {
             title: "Energy!!",
             description: "First Matter upgrade gets a small buff.",
@@ -423,7 +423,7 @@ addLayer("e", {
             description: "...",
             cost: new Decimal(1),
             unlocked() {
-                true
+                return true
             }
         },
         13: {
@@ -434,6 +434,7 @@ addLayer("e", {
                 return true
             }
         },
+    },
 
     branches: ["ma"],
 
