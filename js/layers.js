@@ -88,7 +88,6 @@ addLayer("p", {
     },
     effect() {
         if (hasUpgrade('p', 43)) return player.points.add(1).pow(0.20)
-			if (hasUpgrade('ma', 21)) return player.points.add(1).pow(0.25)
         else return player.points.add(1).pow(0.15)
     },
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
@@ -292,6 +291,7 @@ addLayer("m", {
     gainMult() {
         mult = new Decimal(1)
 		if (hasUpgrade('p', 53)) mult = mult.times(2)
+		if (hasUpgrade('ma', 21)) mult - mult.times(1.25)
 		if (hasChallenge('p', 22)) mult = mult.times(2)
 		
         return mult
@@ -383,7 +383,7 @@ addLayer("ma", {
 	},
 	21: {
 		title: "Sorry about the shortness of this layer.",
-		description: "Buff PU5 slightly.",
+		description: "1.25x to Milestones.",
 		cost: new Decimal(6),
 		},
 	},
