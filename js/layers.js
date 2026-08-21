@@ -408,7 +408,7 @@ addLayer("e", {
     baseAmount() {return player.ma.points},
 
     type: "normal",
-    exponent: 0.3,
+    exponent: 0.4,
 
     row: 1,
 
