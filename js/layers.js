@@ -87,7 +87,7 @@ addLayer("p", {
         return hasUpgrade('p', 21)
     },
     effect() {
-        if (hasUpgrade('p', 43)) return player.points.add(1).pow(0.20)
+        if (hasUpgrade('p', 43)) return player.points.add(1).pow(0.25)
         else return player.points.add(1).pow(0.15)
     },
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
@@ -263,7 +263,7 @@ addLayer("p", {
 		if (hasMilestone('m', 1)) mult = mult.times(2)
 		if (hasUpgrade('ma', 11)) mult = mult.times(upgradeEffect('ma', 11))
 		if (hasUpgrade('e', 13)) mult = mult.times(upgradeEffect('e', 13))
-		if (hasUpgrade('e', 14)) mult = mult.times(1.75)
+		if (hasUpgrade('e', 14)) mult = mult.times(1.25)
         return mult
     },
 })
@@ -291,7 +291,7 @@ addLayer("m", {
     gainMult() {
         mult = new Decimal(1)
 		if (hasUpgrade('p', 53)) mult = mult.times(2)
-		if (hasUpgrade('ma', 21)) mult = mult.times(1.25)
+		if (hasUpgrade('e', 14)) mult = mult.times(1.25)
 		if (hasChallenge('p', 22)) mult = mult.times(2)
 		
         return mult
@@ -379,12 +379,6 @@ addLayer("ma", {
 		title: "Particle Preservation",
 		description: "Particle upgrades are no longer lost.",
 		cost: new Decimal(6),
-		}
-	},
-	21: {
-		title: "Sorry about the shortness of this layer.",
-		description: "1.25x to Milestones.",
-		cost: new Decimal(6),
 		},
 	},
 
@@ -455,7 +449,7 @@ addLayer("e", {
 },
 		 14: {
     title: "Energy Upgrade 4",
-    description: "1.5x multiplier for Atoms and Particles.",
+    description: "1.25x multiplier for Atoms, Particles, and Milestones.",
     cost: new Decimal(15),
 },
     },
