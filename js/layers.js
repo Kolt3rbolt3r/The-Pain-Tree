@@ -263,6 +263,7 @@ addLayer("p", {
 		if (hasMilestone('m', 1)) mult = mult.times(2)
 		if (hasUpgrade('ma', 11)) mult = mult.times(upgradeEffect('ma', 11))
 		if (hasUpgrade('e', 13)) mult = mult.times(upgradeEffect('e', 13))
+		if (hasUpgrade('e', 14)) mult = mult.times(1.75)
         return mult
     },
 })
@@ -329,7 +330,7 @@ addLayer("m", {
     },
 	5: {
         requirementDescription: "15,000 Milestones",
-        effectDescription: "Particle challenges are now kept too!",
+        effectDescription: "Particle challenges are now kept on resets!",
         done() {return player.m.points.gte(15000)}
     },
 },
@@ -424,7 +425,7 @@ addLayer("e", {
         },
 
         12: {
-    title: "Matter Efficiency",
+    title: "Energy Upgrade 2",
     description: "Matter boosts Energy gain.",
     cost: new Decimal(5),
     effect() {
@@ -435,7 +436,7 @@ addLayer("e", {
     }
 },
         13: {
-    title: "Energetic Particles",
+    title: "Energy Upgrade 3",
     description: "Energy boosts Particle gain.",
     cost: new Decimal(15),
     effect() {
@@ -444,6 +445,11 @@ addLayer("e", {
     effectDisplay() {
         return format(upgradeEffect(this.layer, this.id))+"x"
 	}
+},
+		 14: {
+    title: "Energy Upgrade 4",
+    description: "1.5x multiplier for Atoms and Particles.",
+    cost: new Decimal(15),
 },
     },
 
