@@ -87,7 +87,8 @@ addLayer("p", {
         return hasUpgrade('p', 21)
     },
     effect() {
-        if (hasUpgrade('p', 43)) return player.points.add(1).pow(0.25)
+        if (hasUpgrade('p', 43)) return player.points.add(1).pow(0.20)
+			if (hasUpgrade('ma', 21)) return player.points.add(1).pow(0.25)
         else return player.points.add(1).pow(0.15)
     },
     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
@@ -377,6 +378,12 @@ addLayer("ma", {
 	12: {
 		title: "Particle Preservation",
 		description: "Particle upgrades are no longer lost.",
+		cost: new Decimal(6),
+		}
+	},
+	21: {
+		title: "Sorry about the shortness of this layer.",
+		description: "Buff PU5 slightly.",
 		cost: new Decimal(6),
 		},
 	},
