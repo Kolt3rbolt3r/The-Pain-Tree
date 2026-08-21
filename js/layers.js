@@ -291,7 +291,7 @@ addLayer("m", {
     gainMult() {
         mult = new Decimal(1)
 		if (hasUpgrade('p', 53)) mult = mult.times(2)
-		if (hasUpgrade('ma', 21)) mult - mult.times(1.25)
+		if (hasUpgrade('ma', 21)) mult = mult.times(1.25)
 		if (hasChallenge('p', 22)) mult = mult.times(2)
 		
         return mult
