@@ -173,7 +173,7 @@ addLayer("p", {
         },
 
 		44: {
-            title: "Finally... a new layer.",
+            title: "Finally...",
             description: "Unlocks the next 2 layers: Matter and Energy.",
             cost: new Decimal(5e15),
             unlocked() {
@@ -380,7 +380,19 @@ addLayer("ma", {
 		description: "Particle upgrades are no longer lost.",
 		cost: new Decimal(6),
 		},
+	21: {
+		title: "Matter Upgrade Blank",
+		description: "...",
+		cost: new Decimal(20),
+		unlocked() {
+                return hasMilestone('m', 4)
 	},
+	22: {
+		title: "Matter Upgrade Blank",
+		description: "...",
+		cost: new Decimal(100),
+	},
+},
 
     branches: ["p"],
 
