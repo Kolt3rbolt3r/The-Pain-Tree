@@ -391,6 +391,8 @@ addLayer("ma", {
 		title: "Matter Upgrade Blank",
 		description: "...",
 		cost: new Decimal(100),
+		unlocked() {
+                return hasMilestone('m', 4)
 	},
 },
 
