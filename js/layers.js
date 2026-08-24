@@ -303,6 +303,9 @@ addLayer("m", {
 
     row: 0,
 
+	doReset(resettingLayer) {
+    layerDataReset(this.layer, ["points"], ["milestones")
+
 },
 
 	milestones: {
