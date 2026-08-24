@@ -379,14 +379,20 @@ addLayer("ma", {
 		title: "Particle Preservation",
 		description: "Particle upgrades are no longer lost.",
 		cost: new Decimal(6),
-		},
 	},
+	13: {
+		title: "Want some more?",
+		description: "1.5x to Matter.",
+		cost: new Decimal(15),
+	},
+},
 
     branches: ["p"],
 
 	gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
 		if (hasMilestone('m', 4)) mult = mult.times(1.5)
+		if (hasUpgrade('ma', 13)) mult = mult.times(1.5)
 			return mult
     },
     layerShown(){return hasUpgrade('p', 44)},
