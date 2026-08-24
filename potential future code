@@ -1,0 +1,33 @@
+//	milestones: {
+//    1: {
+//        requirementDescription: "1 Milestone",
+//        effectDescription: "Double Particle gain",
+//        done() {return player.m.points.gte(1)}
+//    },
+//
+//    2: {
+//        requirementDescription: "50 Milestones",
+//        effectDescription: "Double Atom gain",
+//        done() {return player.m.points.gte(50)}
+//    },
+//	3: {
+//        requirementDescription: "250 Milestones",
+//        effectDescription: "Gain 50% of Particle points a second.",
+//        done() {return player.m.points.gte(250)}
+//    },
+//	4: {
+//        requirementDescription: "500 Milestones",
+//        effectDescription: "PU3 is upgraded again.",
+//        done() {return player.m.points.gte(500)}
+//    },
+//	5: {
+//        requirementDescription: "1000 Milestones",
+//        effectDescription: "1.5x Matter gain (also some new upgrades).",
+//        done() {return player.m.points.gte(1000)}
+//    },
+//	6: {
+//        requirementDescription: "15,000 Milestones",
+//        effectDescription: "Particle challenges are now kept on resets!",
+//        done() {return player.m.points.gte(15000)}
+//    },
+//},
