@@ -141,20 +141,29 @@ addLayer("p", {
             description: "Unlocks the next 2 layers: Matter and Energy.",
             cost: new Decimal(5e15),
         },
-        51: {
+		51: {
             title: "Particle Upgrade 14.",
             description: "1.5x Atom gain.",
             cost: new Decimal(1e23),
+            unlocked() {
+                return hasMilestone('m', 4)
+            }
         },
-        52: {
+		52: {
             title: "Particle Upgrade 15.",
             description: "1.5x Particle gain.",
             cost: new Decimal(1e24),
+            unlocked() {
+                return hasMilestone('m', 4)
+            }
         },
-        53: {
+		53: {
             title: "Particle Upgrade 16.",
             description: "2x Milestone gain.",
             cost: new Decimal(1e26),
+            unlocked() {
+                return hasMilestone('m', 4)
+            }
         },
     },
 
