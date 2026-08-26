@@ -1,45 +1,49 @@
 addLayer("p", {
-    name: "Particles", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
-    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    name: "Particles",
+    symbol: "P",
+    position: 0,
     startData() { return {
         unlocked: true,
-		points: new Decimal(1),
-    }}, // Sets prestige points at the start
+        points: new Decimal(1),
+    }},
     color: "#808080",
-    requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "Particles", // Name of prestige currency
-    baseResource: "Atoms", // Name of resource prestige is based on
-    baseAmount() {return player.points}, // Get the current amount of baseResource
-    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.5, // Prestige currency exponent
-    gainMult() { // Calculate the multiplier for main currency from bonuses
+    requires: new Decimal(10),
+    resource: "Particles",
+    baseResource: "Atoms",
+    baseAmount() {return player.points},
+    type: "normal",
+    exponent: 0.5,
+
+    gainMult() {
         mult = new Decimal(1)
         return mult
     },
-    gainExp() { // Calculate the exponent on main currency from bonuses
+    gainExp() {
         return new Decimal(1)
     },
-	doReset(resettingLayer) {
-    if (resettingLayer == "ma") {
-        let keep = []
-        if (hasUpgrade('ma', 12)) keep.push("upgrades")
-        if (hasMilestone('m', 5)) keep.push("challenges")
-        layerDataReset(this.layer, keep)
-    }
-},
-    row: 0, // Row the layer is in on the tree (0 is the first row)
 
-	passiveGeneration() {
-    if (hasMilestone('m', 3)) {
-        return 0.5
-    }
-},
+    doReset(resettingLayer) {
+        if (resettingLayer == "ma") {
+            let keep = []
+            if (hasUpgrade('ma', 12)) keep.push("upgrades")
+            if (hasMilestone('m', 5)) keep.push("challenges")
+            layerDataReset(this.layer, keep)
+        }
+    },
+
+    row: 0,
+
+    passiveGeneration() {
+        if (hasMilestone('m', 3)) {
+            return 0.5
+        }
+    },
 
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
+
     upgrades: {
         11: {
             title: "The Beginning",
@@ -60,14 +64,13 @@ addLayer("p", {
             title: "Particle Upgrade 3",
             description: "Particles boost Atom gain",
             cost: new Decimal(10),
-            },
             effect() {
                 let boost = 0
                 if (hasUpgrade('p', 23)) boost = boost + 0.25
-				if (hasMilestone('m', 3)) boost = boost + 0.07
-				if (hasChallenge('p', 21)) boost = boost + 0.05
-        return player[this.layer].points.add(1).pow(0.5 + boost)
-             },
+                if (hasMilestone('m', 3)) boost = boost + 0.07
+                if (hasChallenge('p', 21)) boost = boost + 0.05
+                return player.points.add(1).pow(0.5 + boost)
+            },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
         },
         21: {
@@ -76,15 +79,15 @@ addLayer("p", {
             cost: new Decimal(30),
         },
         22: {
-    title: "Particle Upgrade 5",
-    description: "Atoms boost Particle gain",
-    cost: new Decimal(65),
-    effect() {
-        if (hasUpgrade('p', 43)) return player.points.add(1).pow(0.25)
-        else return player.points.add(1).pow(0.15)
-    },
-    effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-},
+            title: "Particle Upgrade 5",
+            description: "Atoms boost Particle gain",
+            cost: new Decimal(65),
+            effect() {
+                if (hasUpgrade('p', 43)) return player.points.add(1).pow(0.25)
+                else return player.points.add(1).pow(0.15)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
         23: {
             title: "Particle Upgrade 6",
             description: "Increases the effect of PU3",
@@ -104,132 +107,105 @@ addLayer("p", {
             title: "Particle Upgrade 9",
             description: "Atoms boost itself",
             cost: new Decimal("1e6"),
-             effect() {
-        return player.points.add(1).pow(0.1)
-    },
+            effect() {
+                return player.points.add(1).pow(0.1)
+            },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-            
-            
         },
         33: {
             title: "Particle Upgrade 10",
             description: "Particles points boost itself",
             cost: new Decimal("1.5e7"),
-             effect() {
-        return player.points.add(1).pow(0.1)
-    },
+            effect() {
+                return player.points.add(1).pow(0.1)
+            },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-            
-            
         },
-
-		41: {
+        41: {
             title: "Particle Upgrade 11",
             description: "Doubles atom gain... again.",
             cost: new Decimal(1e9),
         },
-
-		42: {
+        42: {
             title: "Particle Upgrade 12",
             description: "Double Particle gain.",
             cost: new Decimal(1.5e11),
         },
-
-		43: {
+        43: {
             title: "Particle Upgrade 13",
             description: "Increase the effects of PU5.",
             cost: new Decimal(2.5e12),
         },
-
-		44: {
-            title: "Finally... new layers.",
+        44: {
+            title: "Finally... a new layer.",
             description: "Unlocks the next 2 layers: Matter and Energy.",
             cost: new Decimal(5e15),
         },
-
-		51: {
+        51: {
             title: "Particle Upgrade 14.",
             description: "1.5x Atom gain.",
             cost: new Decimal(1e23),
-            unlocked() {
-                return hasMilestone('m', 4)
-            }
         },
-
-		52: {
+        52: {
             title: "Particle Upgrade 15.",
             description: "1.5x Particle gain.",
             cost: new Decimal(1e24),
-            unlocked() {
-                return hasMilestone('m', 4)
-            }
         },
-
-		53: {
+        53: {
             title: "Particle Upgrade 16.",
             description: "2x Milestone gain.",
             cost: new Decimal(1e26),
-            unlocked() {
-                return hasMilestone('m', 4)
-            }
         },
     },
 
     challenges: {
-    11: {
-        name: "Particle Challenge 1",
-        challengeDescription: "Atoms are square-rooted",
-        canComplete: function() {return player.points.gte(5000)},
-        goalDescription: "5,000 Points",
-        rewardDescription: "10x particle points gain",
-        unlocked() {
-            return true
-        }
+        11: {
+            name: "Particle Challenge 1",
+            challengeDescription: "Atoms are square-rooted",
+            canComplete: function() {return player.points.gte(5000)},
+            goalDescription: "5,000 Points",
+            rewardDescription: "10x particle points gain",
+            unlocked() { return true }
+        },
+        12: {
+            name: "Particle Challenge 2",
+            challengeDescription: "Atom gain is cube-rooted",
+            canComplete: function() {return player.points.gte(50000)},
+            goalDescription: "50,000 Points",
+            rewardDescription: "5x particle points gain",
+            unlocked() { return true }
+        },
+        21: {
+            name: "Particle Challenge 3",
+            challengeDescription: "Atom gain is rooted to the 4th.",
+            canComplete: function() {return player.points.gte(250000)},
+            goalDescription: "250,000 Points",
+            rewardDescription: "Another boost to PU3.",
+            unlocked() { return true }
+        },
+        22: {
+            name: "Particle Challenge 4",
+            challengeDescription: "Atom gain is rooted to the 6th...",
+            canComplete: function() {return player.points.gte(2500000)},
+            goalDescription: "2,500,000 Atoms",
+            rewardDescription: "2x to Milestones. ",
+            unlocked() { return true }
+        },
     },
-    12: {
-        name: "Particle Challenge 2",
-        challengeDescription: "Atom gain is cube-rooted",
-        canComplete: function() {return player.points.gte(50000)},
-        goalDescription: "50,000 Points",
-        rewardDescription: "5x particle points gain",
-        unlocked() {
-            return true
-        }
-    },
-	21: {
-        name: "Particle Challenge 3",
-        challengeDescription: "Atom gain is rooted to the 4th.",
-        canComplete: function() {return player.points.gte(250000)},
-        goalDescription: "250,000 Points",
-        rewardDescription: "Another boost to PU3.",
-        unlocked() {
-            return true
-        }
-    },
-	22: {
-        name: "Particle Challenge 4",
-        challengeDescription: "Atom gain is rooted to the 6th...",
-        canComplete: function() {return player.points.gte(2500000)},
-        goalDescription: "2,500,000 Atoms",
-        rewardDescription: "2x to Milestones. ",
-        unlocked() {
-            return true
-        }
-    },
-},
+
     gainMult() {
         let mult = new Decimal(1)
         if (hasUpgrade('p', 22)) mult = mult.times(upgradeEffect('p', 22))
         if (hasUpgrade('p', 24)) mult = mult.times(5)
         if (hasChallenge('p', 11)) mult = mult.times(10)
-		if (hasChallenge('p', 12)) mult = mult.times(5)
-		if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
-		if (hasUpgrade('p', 42)) mult = mult.times(2)
-		if (hasUpgrade('p', 52)) mult = mult.times(1.5)
-		if (hasMilestone('m', 1)) mult = mult.times(2)
-		if (hasUpgrade('ma', 11)) mult = mult.times(upgradeEffect('ma', 11))
-		if (hasUpgrade('e', 13)) mult = mult.times(upgradeEffect('e', 13))
-		if (hasUpgrade('e', 14)) mult = mult.times(1.25)
+        if (hasChallenge('p', 12)) mult = mult.times(5)
+        if (hasUpgrade('p', 33)) mult = mult.times(upgradeEffect('p', 33))
+        if (hasUpgrade('p', 42)) mult = mult.times(2)
+        if (hasUpgrade('p', 52)) mult = mult.times(1.5)
+        if (hasMilestone('m', 1)) mult = mult.times(2)
+        if (hasUpgrade('ma', 11)) mult = mult.times(upgradeEffect('ma', 11))
+        if (hasUpgrade('e', 13)) mult = mult.times(upgradeEffect('e', 13))
+        if (hasUpgrade('e', 14)) mult = mult.times(1.25)
         return mult
     },
 })
