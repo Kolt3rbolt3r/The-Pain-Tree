@@ -50,24 +50,16 @@ addLayer("p", {
             title: "Particle Upgrade 1",
             description: "Doubles atom gain",
             cost: new Decimal(1),
-            unlocked() {
-                return hasUpgrade('p', 11)
-            }
         },
         13: {
             title: "Particle Upgrade 2",
             description: "Triples atom gain",
             cost: new Decimal(3),
-            unlocked() {
-                return hasUpgrade('p', 12)
-            }
         },
         14: {
             title: "Particle Upgrade 3",
             description: "Particles boost Atom gain",
             cost: new Decimal(10),
-            unlocked() {
-                return hasUpgrade('p', 13)
             },
             effect() {
                 let boost = 0
@@ -82,17 +74,11 @@ addLayer("p", {
             title: "Particle Upgrade 4",
             description: "2.5x atom gain",
             cost: new Decimal(30),
-            unlocked() {
-                return hasUpgrade('p', 14)
-            }
         },
         22: {
     title: "Particle Upgrade 5",
     description: "Atoms boost Particle gain",
     cost: new Decimal(65),
-    unlocked() {
-        return hasUpgrade('p', 21)
-    },
     effect() {
         if (hasUpgrade('p', 43)) return player.points.add(1).pow(0.25)
         else return player.points.add(1).pow(0.15)
@@ -103,33 +89,21 @@ addLayer("p", {
             title: "Particle Upgrade 6",
             description: "Increases the effect of PU3",
             cost: new Decimal(250),
-            unlocked() {
-                return hasUpgrade('p', 22)
-            }
         },
         24: {
             title: "Particle Upgrade 7",
             description: "5x Particle gain",
             cost: new Decimal(1000),
-            unlocked() {
-                return hasUpgrade('p', 23)
-            }
         },
         31: {
             title: "Particle Upgrade 8",
             description: "Here. Have a 1x multiplier. :Troll:",
             cost: new Decimal(12500),
-            unlocked() {
-                return hasUpgrade('p', 24)
-            }
         },
         32: {
             title: "Particle Upgrade 9",
             description: "Atoms boost itself",
             cost: new Decimal("1e6"),
-            unlocked() {
-                return hasUpgrade('p', 31)
-            },
              effect() {
         return player.points.add(1).pow(0.1)
     },
@@ -141,9 +115,6 @@ addLayer("p", {
             title: "Particle Upgrade 10",
             description: "Particles points boost itself",
             cost: new Decimal("1.5e7"),
-            unlocked() {
-                return hasUpgrade('p', 32)
-            },
              effect() {
         return player.points.add(1).pow(0.1)
     },
@@ -156,36 +127,24 @@ addLayer("p", {
             title: "Particle Upgrade 11",
             description: "Doubles atom gain... again.",
             cost: new Decimal(1e9),
-            unlocked() {
-                return hasUpgrade('p', 33)
-            }
         },
 
 		42: {
             title: "Particle Upgrade 12",
             description: "Double Particle gain.",
             cost: new Decimal(1.5e11),
-            unlocked() {
-                return hasUpgrade('p', 41)
-            }
         },
 
 		43: {
             title: "Particle Upgrade 13",
             description: "Increase the effects of PU5.",
             cost: new Decimal(2.5e12),
-            unlocked() {
-                return hasUpgrade('p', 42)
-            }
         },
 
 		44: {
-            title: "Finally... a new layer.",
+            title: "Finally... new layers.",
             description: "Unlocks the next 2 layers: Matter and Energy.",
             cost: new Decimal(5e15),
-            unlocked() {
-                return hasUpgrade('p', 43)
-            }
         },
 
 		51: {
