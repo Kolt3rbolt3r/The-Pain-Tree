@@ -29,6 +29,13 @@ addLayer("p", {
     }
 },
     row: 0, // Row the layer is in on the tree (0 is the first row)
+
+	passiveGeneration() {
+    if (hasMilestone('m', 3)) {
+        return 0.5
+    }
+},
+
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
@@ -308,7 +315,7 @@ addLayer("m", {
 
 },
 
-	milestones: {
+milestones: {
     1: {
         requirementDescription: "1 Milestone",
         effectDescription: "Double Particle gain",
@@ -320,22 +327,32 @@ addLayer("m", {
         effectDescription: "Double Atom gain",
         done() {return player.m.points.gte(50)}
     },
-	3: {
+
+    3: {
+        requirementDescription: "250 Milestones",
+        effectDescription: "Gain 50% of gainable Particle points a second.",
+        done() {return player.m.points.gte(250)}
+    },
+
+    4: {
         requirementDescription: "500 Milestones",
         effectDescription: "PU3 is upgraded again.",
         done() {return player.m.points.gte(500)}
     },
-	4: {
+
+    5: {
         requirementDescription: "1000 Milestones",
         effectDescription: "1.5x Matter gain (also some new upgrades).",
         done() {return player.m.points.gte(1000)}
     },
-	5: {
+
+    6: {
         requirementDescription: "15,000 Milestones",
         effectDescription: "Particle challenges are now kept on resets!",
         done() {return player.m.points.gte(15000)}
     },
 },
+
 
     layerShown(){return true},
 })
