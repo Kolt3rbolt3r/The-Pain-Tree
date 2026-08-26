@@ -53,7 +53,7 @@ addLayer("p", {
         12: {
             title: "Particle Upgrade 1",
             description: "Doubles atom gain",
-            cost: new Decimal(1),
+            cost: new Decimal(2),
         },
         13: {
             title: "Particle Upgrade 2",
