@@ -295,6 +295,12 @@ milestones: {
         effectDescription: "Particle challenges are now kept on resets!",
         done() {return player.m.points.gte(15000)}
     },
+
+	7: {
+        requirementDescription: "30,000 Milestones",
+        effectDescription: "More Matter upgrades (WIP RN, no matter upgrades attached to it)!",
+        done() {return player.m.points.gte(30000)}
+    },
 },
 
 
