@@ -252,7 +252,7 @@ addLayer("m", {
         return new Decimal(1)
     },
 
-    row: 1,
+    row: 0,
 
 	doReset(resettingLayer) {
     layerDataReset(this.layer, ["points"], ["milestones"])
