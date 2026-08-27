@@ -31,7 +31,7 @@ addLayer("p", {
         }
     },
 
-    row: 0,
+    row: 1,
 
     passiveGeneration() {
         if (hasMilestone('m', 3)) {
@@ -252,7 +252,7 @@ addLayer("m", {
         return new Decimal(1)
     },
 
-    row: 0,
+    row: 1,
 
 	doReset(resettingLayer) {
     layerDataReset(this.layer, ["points"], ["milestones"])
@@ -310,7 +310,7 @@ milestones: {
 addLayer("ma", {
     name: "Matter",
     symbol: "MA",
-    position: 0,
+    position: -1,
 
     startData() { return {
         unlocked: true,
@@ -327,7 +327,7 @@ addLayer("ma", {
     type: "normal",
     exponent: 0.1,
 
-    row: 1,
+    row: 2,
 
 	upgrades: {
     11: {
@@ -386,7 +386,7 @@ addLayer("e", {
     type: "normal",
     exponent: 0.4,
 
-    row: 1,
+    row: 2,
 
     onPrestige(gain) {
         layerDataReset('ma')
