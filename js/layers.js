@@ -217,6 +217,8 @@ addLayer("p", {
         if (hasUpgrade('e', 14)) mult = mult.times(1.25)
         return mult
     },
+
+	branches: ["e"],
 })
 
 addLayer("m", {
@@ -428,7 +430,7 @@ addLayer("e", {
 },
     },
 
-    branches: ["ma"], ["p"],
+    branches: ["ma"],
 
     layerShown(){return hasUpgrade('p', 44)},
 })
