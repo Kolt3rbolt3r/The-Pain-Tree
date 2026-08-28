@@ -469,7 +469,7 @@ addLayer("e", {
             description: "Matter boosts Energy gain.",
             cost: new Decimal(5),
             effect() {
-                return player.ma.points.add(1).pow(0.1)
+                return player.ma.points.add(1).pow(0.2)
             },
             effectDisplay() {
                 return format(upgradeEffect(this.layer, this.id))+"x"
@@ -479,7 +479,7 @@ addLayer("e", {
         13: {
             title: "Energy Upgrade 3",
             description: "Energy boosts Particle gain.",
-            cost: new Decimal(15),
+            cost: new Decimal(50),
             effect() {
                 return player.e.points.add(1).pow(0.1)
             },
@@ -491,7 +491,7 @@ addLayer("e", {
         14: {
             title: "Energy Upgrade 4",
             description: "1.25x multiplier for Atoms, Particles, and Milestones.",
-            cost: new Decimal(15),
+            cost: new Decimal(100),
         },
     },
 
