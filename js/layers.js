@@ -428,7 +428,7 @@ addLayer("e", {
 },
     },
 
-    branches: ["ma"],
+    branches: ["ma"], ["p"],
 
     layerShown(){return hasUpgrade('p', 44)},
 })
