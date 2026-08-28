@@ -413,6 +413,20 @@ addLayer("ma", {
             description: "1.5x to Matter.",
             cost: new Decimal(15),
         },
+
+        21: {
+            title: "Oh cool. Another multiplier.",
+            description: "Matter multiplies atom gain.",
+            cost: new Decimal(50),
+            unlocked() {
+                return hasMilestone('m', 7)
+            }
+            effect() {
+                    return player.ma.points.add(1).pow(0.07)
+            },
+            effectDisplay() {
+                return format(upgradeEffect(this.layer, this.id))+"x"
+            }
     },
 
     branches: ["p"],
