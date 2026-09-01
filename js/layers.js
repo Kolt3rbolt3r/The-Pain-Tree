@@ -413,19 +413,6 @@ addLayer("ma", {
             description: "1.5x to Matter.",
             cost: new Decimal(15),
         },
-        21: {
-            title: "Matter matters more.",
-            description: "Matter multiplies itself.",
-            cost: new Decimal(50),
-            effect() {
-                return player.ma.points.add(1).pow(0.07)
-            },
-            effectDisplay() {
-                return format(upgradeEffect(this.layer, this.id))+"x"
-            },
-             unlocked() {
-                return hasMilestone('m', 7)
-            },
     },
 
     branches: ["p"],
