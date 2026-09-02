@@ -403,7 +403,7 @@ addLayer("ma", {
         },
 
         12: {
-            title: "Particle Preservation",
+            title: "Particle matters!",
             description: "Particle upgrades are no longer lost.",
             cost: new Decimal(6),
         },
@@ -414,7 +414,7 @@ addLayer("ma", {
             cost: new Decimal(15),
         },
         21: {
-            title: "Matter matters more!",
+            title: "Matter matters!",
             description: "Matter multiplies Matter gain.",
             cost: new Decimal(5000),
 
@@ -430,6 +430,24 @@ addLayer("ma", {
             return format(upgradeEffect(this.layer, this.id))+"x"
         }
     },
+        22: {
+            title: "Atom matters!",
+            description: "Matter multiplies Atom gain.",
+            cost: new Decimal(150),
+
+            unlocked() {
+                return hasMilestone('m', 7)
+        },
+
+            effect() {
+                return player.ma.points.add(1).pow(0.1)
+        },
+
+            effectDisplay() {
+                return format(upgradeEffect(this.layer, this.id))+"x"
+        }
+    },
+
     },
 
     branches: ["p"],
