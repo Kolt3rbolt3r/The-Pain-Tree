@@ -35,7 +35,7 @@ addLayer("p", {
         if (resettingLayer == "ma") {
             let keep = []
             if (hasUpgrade('ma', 12)) keep.push("upgrades")
-            if (hasMilestone('m', 5)) keep.push("challenges")
+            if (hasMilestone('m', 6)) keep.push("challenges")
             layerDataReset(this.layer, keep)
         }
     },
