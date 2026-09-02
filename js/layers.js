@@ -433,7 +433,7 @@ addLayer("ma", {
         22: {
             title: "Atom matters!",
             description: "Matter multiplies Atom gain.",
-            cost: new Decimal(150),
+            cost: new Decimal(50000),
 
             unlocked() {
                 return hasMilestone('m', 7)
