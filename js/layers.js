@@ -467,7 +467,7 @@ addLayer("e", {
     },
 
     type: "normal",
-    exponent: 0.4,
+    exponent: 0.55,
 
     row: 2,
 
