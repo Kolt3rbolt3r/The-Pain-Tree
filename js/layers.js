@@ -389,7 +389,7 @@ addLayer("ma", {
 
     upgrades: {
         11: {
-            title: "Matter Matters!",
+            title: "Matter matters!",
             description: "Matter multiplies Particle gain.",
             cost: new Decimal(2),
             effect() {
@@ -413,6 +413,23 @@ addLayer("ma", {
             description: "1.5x to Matter.",
             cost: new Decimal(15),
         },
+        21: {
+            title: "Matter matters more!",
+            description: "Matter multiplies Matter gain.",
+            cost: new Decimal(5000),
+
+            unlocked() {
+                return hasMilestone('m', 7)
+        },
+
+            effect() {
+                return player.ma.points.add(1).pow(0.1)
+        },
+
+        effectDisplay() {
+            return format(upgradeEffect(this.layer, this.id))+"x"
+        }
+    },
     },
 
     branches: ["p"],
@@ -421,6 +438,7 @@ addLayer("ma", {
         let mult = new Decimal(1)
         if (hasMilestone('m', 4)) mult = mult.times(1.5)
         if (hasUpgrade('ma', 13)) mult = mult.times(1.5)
+        if (hasUpgrade('ma', 21)) mult = mult.times(upgradeEffect('ma', 21))
         return mult
     },
 
