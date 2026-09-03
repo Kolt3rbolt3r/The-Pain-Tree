@@ -350,10 +350,10 @@ addLayer("m", {
         },
 
         7: {
-            requirementDescription: "100,000 Milestones",
+            requirementDescription: "1,000,000 Milestones",
             effectDescription: "More Matter upgrades (WIP RN. More to come soon!)",
             done() {
-                return player.m.points.gte(100000)
+                return player.m.points.gte(1000000)
             }
         },
     },
