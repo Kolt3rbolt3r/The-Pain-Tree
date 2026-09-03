@@ -335,7 +335,7 @@ addLayer("m", {
 
         5: {
             requirementDescription: "1500 Milestones",
-            effectDescription: "1.5x Matter gain (also some new upgrades).",
+            effectDescription: "1.5x Matter gain (also some new Matter upgrades).",
             done() {
                 return player.m.points.gte(1500)
             }
@@ -433,7 +433,7 @@ addLayer("ma", {
         22: {
             title: "Atoms matter!",
             description: "Matter multiplies Atom gain.",
-            cost: new Decimal(50000),
+            cost: new Decimal(150000),
 
             unlocked() {
                 return hasMilestone('m', 7)
