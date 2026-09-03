@@ -177,7 +177,7 @@ addLayer("p", {
         51: {
             title: "Particle Upgrade 14.",
             description: "1.5x Atom gain.",
-            cost: new Decimal(1e23),
+            cost: new Decimal(1e25),
             unlocked() {
                 return hasMilestone('m', 4)
             }
@@ -186,7 +186,7 @@ addLayer("p", {
         52: {
             title: "Particle Upgrade 15.",
             description: "1.5x Particle gain.",
-            cost: new Decimal(1e24),
+            cost: new Decimal(2.5e26),
             unlocked() {
                 return hasMilestone('m', 4)
             }
@@ -195,7 +195,7 @@ addLayer("p", {
         53: {
             title: "Particle Upgrade 16.",
             description: "2x Milestone gain.",
-            cost: new Decimal(1e26),
+            cost: new Decimal(5e27),
             unlocked() {
                 return hasMilestone('m', 4)
             }
@@ -326,18 +326,18 @@ addLayer("m", {
         },
 
         4: {
-            requirementDescription: "500 Milestones",
+            requirementDescription: "750 Milestones",
             effectDescription: "PU3 is upgraded again.",
             done() {
-                return player.m.points.gte(500)
+                return player.m.points.gte(750)
             }
         },
 
         5: {
-            requirementDescription: "1000 Milestones",
+            requirementDescription: "1500 Milestones",
             effectDescription: "1.5x Matter gain (also some new upgrades).",
             done() {
-                return player.m.points.gte(1000)
+                return player.m.points.gte(1500)
             }
         },
 
@@ -391,7 +391,7 @@ addLayer("ma", {
         11: {
             title: "Matter matters!",
             description: "Matter multiplies Particle gain.",
-            cost: new Decimal(2),
+            cost: new Decimal(5),
             effect() {
                 if (hasUpgrade('e', 11)) return player.ma.points.add(1).pow(0.15)
                 else
@@ -405,13 +405,13 @@ addLayer("ma", {
         12: {
             title: "Particle matters!",
             description: "Particle upgrades are no longer lost.",
-            cost: new Decimal(6),
+            cost: new Decimal(12),
         },
 
         13: {
             title: "Want some more?",
             description: "1.5x to Matter.",
-            cost: new Decimal(15),
+            cost: new Decimal(25),
         },
         21: {
             title: "Matter matters!",
@@ -431,7 +431,7 @@ addLayer("ma", {
         }
     },
         22: {
-            title: "Atom matters!",
+            title: "Atoms matter!",
             description: "Matter multiplies Atom gain.",
             cost: new Decimal(50000),
 
