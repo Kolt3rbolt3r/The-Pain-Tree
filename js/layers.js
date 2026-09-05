@@ -364,7 +364,7 @@ addLayer("m", {
 addLayer("c", {  
     name: "Coal",  
     symbol: "C",  
-    position: -1,  
+    position: 0,  
   
     startData() {  
         return {  
@@ -468,7 +468,7 @@ addLayer("c", {
 addLayer("I", {  
     name: "Iron",  
     symbol: "I",  
-    position: 1,  
+    position: 0,  
   
     startData() {  
         return {  
@@ -489,7 +489,7 @@ addLayer("I", {
     type: "normal",  
     exponent: 0.55,  
   
-    row: 2,  
+    row: 3,  
   
     onPrestige(gain) {  
         layerDataReset('c')  
