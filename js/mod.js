@@ -55,10 +55,10 @@ function getPointGen() {
 	if (hasUpgrade('I', 14)) gain = gain.times(1.25)
 	if (hasMilestone('m', 2)) gain = gain.times(2)
 
-	if (inChallenge('c', 11)) gain = gain.sqrt()
-	if (inChallenge('c', 12)) gain = gain.cbrt()
-	if (inChallenge('c', 21)) gain = gain.root(4)
-	if (inChallenge('c', 22)) gain = gain.root(6)
+	if (inChallenge('s', 11)) gain = gain.sqrt()
+	if (inChallenge('s', 12)) gain = gain.cbrt()
+	if (inChallenge('s', 21)) gain = gain.root(4)
+	if (inChallenge('s', 22)) gain = gain.root(6)
 
 	return gain
 }
