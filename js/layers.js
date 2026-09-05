@@ -449,7 +449,20 @@ addLayer("c", {
                 return format(upgradeEffect(this.layer, this.id))+"x"  
             }  
         },  
-  
+        
+        23: {
+            title: "Rock Reinforcement",
+            description: "Adds ^0.01 to Rock gain per purchase.",
+            cost: new Decimal(250000),
+            repeatable: true,
+            costScaling: new Decimal(2),
+            effect() {
+                return new Decimal(0.01).times(player.c.upgrades[23])
+            },
+            effectDisplay() {
+                return "^"+format(upgradeEffect(this.layer, this.id))
+            }
+        },
     },  
   
     branches: ["s"],  
