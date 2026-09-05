@@ -52,6 +52,9 @@ function getPointGen() {
 	if (hasUpgrade('s', 41)) gain = gain.times(2)
 	if (hasUpgrade('s', 51)) gain = gain.times(1.5)
 	if (hasUpgrade('c', 22)) mult = mult.times(upgradeEffect('c', 22))
+	if (hasUpgrade('c', 23)) {
+		gain = gain.pow(new Decimal(1).add(upgradeEffect('c', 23)))
+	}
 	if (hasUpgrade('I', 14)) gain = gain.times(1.25)
 	if (hasMilestone('m', 2)) gain = gain.times(2)
 
