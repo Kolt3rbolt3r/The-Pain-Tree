@@ -389,7 +389,7 @@ addLayer("c", {
   
     upgrades: {  
         11: {  
-            title: "Stones matter!",  
+            title: "Coal Upgrade 1",  
             description: "Coal multiplies Stone gain.",  
             cost: new Decimal(5),  
             effect() {  
@@ -403,19 +403,19 @@ addLayer("c", {
         },  
   
         12: {  
-            title: "Stone Conservation",  
+            title: "Coal Upgrade 2",  
             description: "Stone upgrades are no longer lost.",  
             cost: new Decimal(12),  
         },  
   
         13: {  
-            title: "Want some more?",  
+            title: "Coal Upgrade 3",  
             description: "1.5x to Coal.",  
             cost: new Decimal(25),  
         },  
   
         21: {  
-            title: "Coal matters!",  
+            title: "Coal Upgrade 4",  
             description: "Coal multiplies Coal gain.",  
             cost: new Decimal(50000),  
   
@@ -433,7 +433,7 @@ addLayer("c", {
         },  
   
         22: {  
-            title: "Rocks matter!",  
+            title: "Coal upgrade 5",  
             description: "Coal multiplies Rock gain.",  
             cost: new Decimal(150000),  
   
@@ -451,7 +451,7 @@ addLayer("c", {
         },  
         
         23: {
-            title: "Rock Reinforcement",
+            title: "Coal Upgrade 6",
             description: "Adds ^0.01 to Rock gain per purchase.",
             cost: new Decimal(250000),
             repeatable: true,
