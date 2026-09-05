@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "A game about atoms",
+	name: "A game about Rocks",
 	author: "Kolt3rbolter",
-	pointsName: "Atoms",
+	pointsName: "Rocks",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -43,22 +43,22 @@ function getPointGen() {
 
 	let gain = new Decimal(0)
 
-	if (hasUpgrade('p', 11)) gain = gain.add(1)
-	if (hasUpgrade('p', 12)) gain = gain.times(2)
-	if (hasUpgrade('p', 13)) gain = gain.times(3)
-	if (hasUpgrade('p', 14)) gain = gain.times(upgradeEffect('p', 14))
-	if (hasUpgrade('p', 21)) gain = gain.times(2.5)
-	if (hasUpgrade('p', 32)) gain = gain.times(upgradeEffect('p', 32))
-	if (hasUpgrade('p', 41)) gain = gain.times(2)
-	if (hasUpgrade('p', 51)) gain = gain.times(1.5)
-	if (hasUpgrade('ma', 22)) mult = mult.times(upgradeEffect('ma', 22))
-	if (hasUpgrade('e', 14)) gain = gain.times(1.25)
+	if (hasUpgrade('s', 11)) gain = gain.add(1)
+	if (hasUpgrade('s', 12)) gain = gain.times(2)
+	if (hasUpgrade('s', 13)) gain = gain.times(3)
+	if (hasUpgrade('s', 14)) gain = gain.times(upgradeEffect('s', 14))
+	if (hasUpgrade('s', 21)) gain = gain.times(2.5)
+	if (hasUpgrade('s', 32)) gain = gain.times(upgradeEffect('s', 32))
+	if (hasUpgrade('s', 41)) gain = gain.times(2)
+	if (hasUpgrade('s', 51)) gain = gain.times(1.5)
+	if (hasUpgrade('c', 22)) mult = mult.times(upgradeEffect('ma', 22))
+	if (hasUpgrade('I', 14)) gain = gain.times(1.25)
 	if (hasMilestone('m', 2)) gain = gain.times(2)
 
-	if (inChallenge('p', 11)) gain = gain.sqrt()
-	if (inChallenge('p', 12)) gain = gain.cbrt()
-	if (inChallenge('p', 21)) gain = gain.root(4)
-	if (inChallenge('p', 22)) gain = gain.root(6)
+	if (inChallenge('c', 11)) gain = gain.sqrt()
+	if (inChallenge('c', 12)) gain = gain.cbrt()
+	if (inChallenge('c', 21)) gain = gain.root(4)
+	if (inChallenge('c', 22)) gain = gain.root(6)
 
 	return gain
 }
