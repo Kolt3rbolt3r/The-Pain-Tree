@@ -73,22 +73,32 @@ addLayer("s", {
             cost: new Decimal(3),  
         },  
   
-        14: {  
-            title: "Stone Upgrade 3",  
-            description: "Stones boost Rock gain",  
-            cost: new Decimal(10),  
-            effect() {  
-                let boost = 0  
-                if (hasUpgrade('s', 23)) boost = boost + 0.25  
-                if (hasMilestone('m', 3)) boost = boost + 0.07  
-                if (hasChallenge('s', 21)) boost = boost + 0.05  
-                return player[this.layer].points.add(1).pow(0.5 + boost)  
-            },  
-            effectDisplay() {  
-                return format(upgradeEffect(this.layer, this.id))+"x"  
-            }  
-        },  
-  
+14: {
+    title: "Stone Upgrade 3",
+    description: "Stones boost Rock gain",
+    cost: new Decimal(10),
+    effect() {
+        let boost = 0
+        if (hasUpgrade('s', 23)) boost = boost + 0.25
+        if (hasMilestone('m', 3)) boost = boost + 0.07
+        if (hasChallenge('s', 21)) boost = boost + 0.05
+
+        let effect = player[this.layer].points.add(1).pow(0.5 + boost)
+        let softcap = new Decimal("1e15")
+
+        if (effect.gt(softcap)) {
+            effect = softcap.times(
+                effect.div(softcap).pow(new Decimal(1).div(3))
+            )
+        }
+
+        return effect
+    },
+    effectDisplay() {
+        return format(upgradeEffect(this.layer, this.id))+"x"
+    }
+},
+        
         21: {  
             title: "Stone Upgrade 4",  
             description: "2.5x rock gain",  
