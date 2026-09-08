@@ -186,7 +186,7 @@ addLayer("s", {
         52: {  
             title: "Stone Upgrade 15.",  
             description: "1.5x Stone gain.",  
-            cost: new Decimal(2.5e26),  
+            cost: new Decimal(2.5e27),  
             unlocked() {  
                 return hasMilestone('m', 4)  
             }  
@@ -195,7 +195,7 @@ addLayer("s", {
         53: {  
             title: "Stone Upgrade 16.",  
             description: "2x Milestone gain.",  
-            cost: new Decimal(5e27),  
+            cost: new Decimal(5e28),  
             unlocked() {  
                 return hasMilestone('m', 4)  
             }  
@@ -327,7 +327,7 @@ addLayer("m", {
   
         4: {  
             requirementDescription: "2,500 Milestones",  
-            effectDescription: "SU3 is upgraded again.",  
+            effectDescription: "SU3 is upgraded again + new Stone upgrades.",  
             done() {  
                 return player.m.points.gte(2500)  
             }  
