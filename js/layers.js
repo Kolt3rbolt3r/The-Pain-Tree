@@ -180,7 +180,7 @@ addLayer("s", {
   
         44: {  
             title: "Finally... a new layer.",  
-            description: "Unlocks the next layer: Coal.",  
+            description: "Unlocks the next 2 layers: Coal and Iron.",  
             cost: new Decimal(5e15),  
         },  
   
@@ -446,12 +446,15 @@ addLayer("c", {
             title: "Coal upgrade 5",  
             description: "Coal multiplies Rock gain.",  
             cost: new Decimal(150000),  
+  
             unlocked() {  
                 return hasMilestone('m', 7)  
             },  
+  
             effect() {  
                 return player.c.points.add(1).pow(0.15)  
             },  
+  
             effectDisplay() {  
                 return format(upgradeEffect(this.layer, this.id))+"x"  
             }  
@@ -463,9 +466,6 @@ addLayer("c", {
             cost: new Decimal(250000),
             repeatable: true,
             costScaling: new Decimal(2),
-            unlocked() {  
-                return hasMilestone('m', 7)  
-            },  
             effect() {
                 return new Decimal(0.01).times(player.c.upgrades[23])
             },
@@ -473,10 +473,6 @@ addLayer("c", {
                 return "^"+format(upgradeEffect(this.layer, this.id))
             }
         },
-        31: {
-            title: "Coal Upgrade 7",
-            description: "Unlocks Iron layer.",
-            cost: new Decimal(250000),
     },  
   
     branches: ["s"],  
@@ -562,5 +558,5 @@ addLayer("I", {
   
     branches: ["c"],  
   
-    layerShown(){return hasUpgrade('c', 31)},  
+    layerShown(){return hasUpgrade('s', 44)},  
 })
