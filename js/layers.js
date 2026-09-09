@@ -233,7 +233,7 @@ addLayer("s", {
   
         21: {  
             name: "Stone Challenge 3",  
-            challengeDescription: "Rock gain is rooted to the 4th.",  
+            challengeDescription: "Rock gain is rooted to the 5th.",  
             canComplete: function() {return player.points.gte(250000)},  
             goalDescription: "250,000 Points",  
             rewardDescription: "Another boost to SU3.",  
