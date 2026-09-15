@@ -554,6 +554,12 @@ addLayer("I", {
             description: "1.25x multiplier for Rocks, Stones, and Milestones.",  
             cost: new Decimal(75),  
         },  
+
+        21: {  
+            title: "Iron Upgrade 5",  
+            description: "Placeholder. Will affect a different layer that isn't added yet."  
+            cost: new Decimal(1e1000000000),  
+        },   
     },  
   
     branches: ["c"],  
