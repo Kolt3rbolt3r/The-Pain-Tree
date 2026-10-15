@@ -180,12 +180,11 @@ addLayer("s", {
         
         44: {
             title: "Finally... a new layer.",
-            description: "Unlocks the next 2 layers: Coal and Iron.",
+            description: "Unlocks the next layer: Coal.",
             cost: new Decimal(5e15),
             
             onPurchase() {
                 player.c.permanentlyUnlocked = true
-                    player.I.permanentlyUnlocked = true
             },
         },
   
