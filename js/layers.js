@@ -298,9 +298,9 @@ addLayer("m", {
     gainMult() {  
         mult = new Decimal(1)  
         if (hasUpgrade('s', 53)) mult = mult.times(2)  
-        if (hasUpgrade('c', 11)) mult = mult.times(1.5)
-        if (hasUpgrade('I', 11)) mult = mult.times(1.5)
-        if (hasUpgrade('I', 14)) mult = mult.times(1.25)  
+        if (hasUpgrade('c', 11)) mult = mult.times(2.5)
+        if (hasUpgrade('I', 11)) mult = mult.times(3)
+        if (hasUpgrade('I', 14)) mult = mult.times(1.5)  
         if (hasChallenge('s', 22)) mult = mult.times(2)  
   
         return mult  
@@ -406,7 +406,7 @@ addLayer("c", {
     upgrades: {  
         11: {  
             title: "Coal Upgrade 1",  
-            description: "1.25 Milestone Gain",  
+            description: "2x Milestone Gain",  
             cost: new Decimal(5),
         },  
   
@@ -544,7 +544,7 @@ addLayer("I", {
     upgrades: {  
         11: {  
             title: "Iron Upgrade 1",  
-            description: "1.5x Milestone and Coal gain.",  
+            description: "3x Milestone and 1.5x Coal gain.",  
             cost: new Decimal(1)  
         },  
   
@@ -574,7 +574,7 @@ addLayer("I", {
   
         14: {  
             title: "Iron Upgrade 4",  
-            description: "1.25x multiplier for Rocks, Stones, and Milestones.",  
+            description: "1.25x multiplier for Rocks, Stones, and 1.5x for Milestones.",  
             cost: new Decimal(75),  
         },  
     },  
