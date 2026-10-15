@@ -407,7 +407,7 @@ addLayer("c", {
     upgrades: {  
         11: {  
             title: "Coal Upgrade 1",  
-            description: "2x Milestone Gain",  
+            description: "2.5x Milestone Gain",  
             cost: new Decimal(5),
         },  
   
