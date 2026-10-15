@@ -180,7 +180,7 @@ addLayer("s", {
         
         44: {
             title: "Finally... a new layer.",
-            description: "Unlocks the next layer: Coal. (Buying this any time after the first time is redundant... XD",
+            description: "Unlocks the next layer: Coal. (Buying this, and other new unlock layer upgrades, any time after the first time is redundant... XD",
             cost: new Decimal(5e15),
             
             onPurchase() {
@@ -428,9 +428,18 @@ addLayer("c", {
             description: "1.5x to Coal.",  
             cost: new Decimal(25),  
         },  
+
+        14: {  
+            title: "Another one.",  
+            description: "Unlock Iron layer.",  
+            cost: new Decimal(75),  
+            onPurchase() {
+                player.I.permanentlyUnlocked = true
+            },
+        },  
   
         21: {  
-            title: "Coal Upgrade 4",  
+            title: "Coal Upgrade 5",  
             description: "Coal multiplies Coal gain.",  
             cost: new Decimal(50000),  
   
@@ -448,7 +457,7 @@ addLayer("c", {
         },  
   
         22: {  
-            title: "Coal upgrade 5",  
+            title: "Coal upgrade 6",  
             description: "Coal multiplies Rock gain.",  
             cost: new Decimal(150000),  
   
@@ -466,7 +475,7 @@ addLayer("c", {
         },  
         
         23: {
-            title: "Coal Upgrade 6",
+            title: "Coal Upgrade 7",
             description: "Adds ^0.01 to Rock gain per purchase.",
             cost: new Decimal(250000),
             repeatable: true,
@@ -519,7 +528,7 @@ addLayer("I", {
   
     color: "#f1c40f",  
   
-    requires: new Decimal(50),  
+    requires: new Decimal(150),  
     resource: "Iron",  
     baseResource: "Coal",  
     baseAmount() {  
