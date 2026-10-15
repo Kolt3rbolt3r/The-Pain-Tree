@@ -553,7 +553,7 @@ addLayer("I", {
             description: "Iron boosts Coal gain.",  
             cost: new Decimal(5),  
             effect() {  
-                return player.c.points.add(1).pow(0.1)  
+                return player.I.points.add(1).pow(0.1)  
             },  
             effectDisplay() {  
                 return format(upgradeEffect(this.layer, this.id))+"x"  
