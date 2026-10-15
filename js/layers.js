@@ -176,13 +176,18 @@ addLayer("s", {
             title: "Stone Upgrade 13",  
             description: "Increase the effects of SU5.",  
             cost: new Decimal(2.5e12),  
-        },  
-  
-        44: {  
-            title: "Finally... a new layer.",  
-            description: "Unlocks the next 2 layers: Coal and Iron.",  
-            cost: new Decimal(5e15),  
-        },  
+        }, 
+        
+        44: {
+            title: "Finally... a new layer.",
+            description: "Unlocks the next 2 layers: Coal and Iron.",
+            cost: new Decimal(5e15),
+            
+            onPurchase() {
+                player.c.permanentlyUnlocked = true
+                    player.I.permanentlyUnlocked = true
+            },
+        },
   
         51: {  
             title: "Stone Upgrade 14.",  
@@ -369,7 +374,8 @@ addLayer("m", {
         },  
     },  
   
-    layerShown(){return true},  
+layerShown() {
+    return player.c.permanentlyUnlocked},  
 })  
   
 addLayer("c", {  
@@ -497,7 +503,8 @@ addLayer("c", {
         "upgrades",
     ],
   
-    layerShown(){return hasUpgrade('s', 44)},  
+layerShown() {
+    return player.I.permanentlyUnlocked},
 })  
   
 addLayer("I", {  
