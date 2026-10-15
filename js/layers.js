@@ -435,7 +435,7 @@ addLayer("c", {
         21: {  
             title: "Coal Upgrade 5",  
             description: "Coal multiplies Coal gain.",  
-            cost: new Decimal(50000),  
+            cost: new Decimal(500),  
   
             unlocked() {  
                 return hasMilestone('m', 5)  
@@ -453,7 +453,7 @@ addLayer("c", {
         22: {  
             title: "Coal upgrade 6",  
             description: "Coal multiplies Milestone gain.",  
-            cost: new Decimal(150000),  
+            cost: new Decimal(5000),  
   
             unlocked() {  
                 return hasMilestone('m', 5)  
@@ -471,7 +471,7 @@ addLayer("c", {
         23: {
             title: "Coal Upgrade 7",
             description: "Adds ^0.01 to Rock gain per purchase.",
-            cost: new Decimal(250000),
+            cost: new Decimal(30000),
 
             unlocked() {
                 return hasMilestone('m', 5)
