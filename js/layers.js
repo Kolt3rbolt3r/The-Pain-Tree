@@ -491,16 +491,18 @@ addLayer("c", {
         return mult  
     },  
 
-            tabFormat: [
-        ["display-text", function() {
-            return "Stone gain multiplier from Coal: " +
-                format(player.c.points.add(1).pow(1.5)) + "x"
-        }],
-        "main-display",
-        "prestige-button",
-        "resource-display",
-        "upgrades",
-    ],
+tabFormat: [
+    ["display-text", function() {
+        return "Stone gain multiplier from Coal: " +
+            format(
+                player.c.points.add(1).log10().add(1).pow(1.5)
+            ) + "x"
+    }],
+    "main-display",
+    "prestige-button",
+    "resource-display",
+    "upgrades",
+],
 
     layerShown() {
     return player.c.permanentlyUnlocked},    
