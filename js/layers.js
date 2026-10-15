@@ -249,7 +249,7 @@ addLayer("s", {
             challengeDescription: "Rock gain is rooted to the 6th...",  
             canComplete: function() {return player.points.gte(2500000)},  
             goalDescription: "2,500,000 Rocks",  
-            rewardDescription: "2x to Milestones. ",  
+            rewardDescription: "3x to Milestones. ",  
             unlocked() { return true }  
         },  
     },  
@@ -301,7 +301,7 @@ addLayer("m", {
         if (hasUpgrade('c', 11)) mult = mult.times(2.5)
         if (hasUpgrade('I', 11)) mult = mult.times(3)
         if (hasUpgrade('I', 14)) mult = mult.times(1.5)  
-        if (hasChallenge('s', 22)) mult = mult.times(2)  
+        if (hasChallenge('s', 22)) mult = mult.times(3)  
   
         return mult  
     },  
@@ -351,7 +351,7 @@ addLayer("m", {
   
         5: {  
             requirementDescription: "20,000 Milestones",  
-            effectDescription: "1.5x Coal gain.",  
+            effectDescription: "5x Coal gain.",  
             done() {  
                 return player.m.points.gte(20000)  
             }  
@@ -486,7 +486,7 @@ addLayer("c", {
   
     gainMult() { // Calculate the multiplier for main currency from bonuses  
         let mult = new Decimal(1)  
-        if (hasMilestone('m', 4)) mult = mult.times(1.5)  
+        if (hasMilestone('m', 5)) mult = mult.times(5)  
         if (hasUpgrade('c', 13)) mult = mult.times(1.5)  
         if (hasUpgrade('c', 21)) mult = mult.times(upgradeEffect('c', 21))  
         if (hasUpgrade('I', 11)) mult = mult.times(1.5)
