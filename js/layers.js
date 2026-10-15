@@ -266,7 +266,7 @@ addLayer("s", {
         if (hasMilestone('m', 1)) mult = mult.times(2)  
         if (hasUpgrade('I', 13)) mult = mult.times(upgradeEffect('I', 13))  
         if (hasUpgrade('I', 14)) mult = mult.times(1.25)  
-        mult = mult.times(player.c.points.add(1).log10().add(1).pow(0.9))
+        mult = mult.times(player.c.points.add(1).log10().add(1).pow(1.5))
         return mult  
     },  
 })  
