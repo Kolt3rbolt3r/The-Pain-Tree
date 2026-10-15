@@ -264,6 +264,7 @@ addLayer("s", {
         if (hasUpgrade('s', 42)) mult = mult.times(2)  
         if (hasUpgrade('s', 52)) mult = mult.times(1.5)  
         if (hasMilestone('m', 1)) mult = mult.times(2)  
+        if (hasUpgrade('c', 22)) mult = mult.times(upgradeEffect('c', 22))
         if (hasUpgrade('I', 13)) mult = mult.times(upgradeEffect('I', 13))  
         if (hasUpgrade('I', 14)) mult = mult.times(1.25)  
         mult = mult.times(player.c.points.add(1).log10().add(1).pow(1.5))
@@ -351,7 +352,7 @@ addLayer("m", {
   
         5: {  
             requirementDescription: "20,000 Milestones",  
-            effectDescription: "5x Coal gain.",  
+            effectDescription: "5x Coal gain + new Coal upgrades.",  
             done() {  
                 return player.m.points.gte(20000)  
             }  
@@ -437,11 +438,11 @@ addLayer("c", {
             cost: new Decimal(50000),  
   
             unlocked() {  
-                return hasMilestone('m', 7)  
+                return hasMilestone('m', 5)  
             },  
   
             effect() {  
-                return player.c.points.add(1).pow(0.1)  
+                return player.c.points.add(1).pow(0.08)  
             },  
   
             effectDisplay() {  
@@ -451,15 +452,15 @@ addLayer("c", {
   
         22: {  
             title: "Coal upgrade 6",  
-            description: "Coal multiplies Rock gain.",  
+            description: "Coal multiplies Milestone gain.",  
             cost: new Decimal(150000),  
   
             unlocked() {  
-                return hasMilestone('m', 7)  
+                return hasMilestone('m', 5)  
             },  
   
             effect() {  
-                return player.c.points.add(1).pow(0.15)  
+                return player.c.points.add(1).pow(0.05)  
             },  
   
             effectDisplay() {  
@@ -471,6 +472,10 @@ addLayer("c", {
             title: "Coal Upgrade 7",
             description: "Adds ^0.01 to Rock gain per purchase.",
             cost: new Decimal(250000),
+
+            unlocked() {
+                return hasMilestone('m', 5)
+            },
             repeatable: true,
             costScaling: new Decimal(2),
             effect() {
