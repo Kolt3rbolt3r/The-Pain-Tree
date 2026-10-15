@@ -264,7 +264,6 @@ addLayer("s", {
         if (hasUpgrade('s', 42)) mult = mult.times(2)  
         if (hasUpgrade('s', 52)) mult = mult.times(1.5)  
         if (hasMilestone('m', 1)) mult = mult.times(2)  
-        if (hasUpgrade('c', 11)) mult = mult.times(upgradeEffect('c', 11))  
         if (hasUpgrade('I', 13)) mult = mult.times(upgradeEffect('I', 13))  
         if (hasUpgrade('I', 14)) mult = mult.times(1.25)  
         mult = mult.times(player.c.points.add(1).log10().add(1).pow(0.9))
@@ -299,6 +298,7 @@ addLayer("m", {
     gainMult() {  
         mult = new Decimal(1)  
         if (hasUpgrade('s', 53)) mult = mult.times(2)  
+        if (hasUpgrade('c', 11)) mult = mult.times(1.5)
         if (hasUpgrade('I', 14)) mult = mult.times(1.25)  
         if (hasChallenge('s', 22)) mult = mult.times(2)  
   
@@ -405,16 +405,8 @@ addLayer("c", {
     upgrades: {  
         11: {  
             title: "Coal Upgrade 1",  
-            description: "Coal multiplies Stone gain.",  
-            cost: new Decimal(5),  
-            effect() {  
-                if (hasUpgrade('I', 11)) return player.c.points.add(1).pow(0.15)  
-                else  
-                    return player.c.points.add(1).pow(0.2)  
-            },  
-            effectDisplay() {  
-                return format(upgradeEffect(this.layer, this.id))+"x"  
-            }  
+            description: "1.25 Milestone Gain",  
+            cost: new Decimal(5),
         },  
   
         12: {  
