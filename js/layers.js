@@ -374,8 +374,7 @@ addLayer("m", {
         },  
     },  
   
-layerShown() {
-    return player.c.permanentlyUnlocked},  
+layershown() {return true},
 })  
   
 addLayer("c", {  
@@ -492,7 +491,7 @@ addLayer("c", {
         return mult  
     },  
 
-        tabFormat: [
+            tabFormat: [
         ["display-text", function() {
             return "Stone gain multiplier from Coal: " +
                 format(player.c.points.add(1).pow(0.05)) + "x"
@@ -502,9 +501,9 @@ addLayer("c", {
         "resource-display",
         "upgrades",
     ],
-  
-layerShown() {
-    return player.I.permanentlyUnlocked},
+
+    layerShown() {
+    return player.c.permanentlyUnlocked},    
 })  
   
 addLayer("I", {  
@@ -577,5 +576,6 @@ addLayer("I", {
   
     branches: ["c"],  
   
-    layerShown(){return hasUpgrade('s', 44)},  
+layerShown() {
+    return player.I.permanentlyUnlocked},
 })
