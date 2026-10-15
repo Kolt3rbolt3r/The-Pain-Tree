@@ -351,7 +351,7 @@ addLayer("m", {
   
         5: {  
             requirementDescription: "20,000 Milestones",  
-            effectDescription: "1.5x Coal gain (also some new Coal upgrades).",  
+            effectDescription: "1.5x Coal gain.",  
             done() {  
                 return player.m.points.gte(20000)  
             }  
