@@ -267,7 +267,7 @@ addLayer("s", {
         if (hasUpgrade('c', 11)) mult = mult.times(upgradeEffect('c', 11))  
         if (hasUpgrade('I', 13)) mult = mult.times(upgradeEffect('I', 13))  
         if (hasUpgrade('I', 14)) mult = mult.times(1.25)  
-        mult = mult.times(player.c.points.add(1).log10().add(1).pow(0.8))
+        mult = mult.times(player.c.points.add(1).log10().add(1).pow(0.9))
         return mult  
     },  
 })  
