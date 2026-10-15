@@ -568,7 +568,7 @@ addLayer("I", {
         13: {  
             title: "Iron Upgrade 3",  
             description: "Iron boosts Stone gain.",  
-            cost: new Decimal(30),  
+            cost: new Decimal(20),  
             effect() {  
                 return player.I.points.add(1).pow(0.3)  
             },  
@@ -580,7 +580,7 @@ addLayer("I", {
         14: {  
             title: "Iron Upgrade 4",  
             description: "1.25x multiplier for Rocks, Stones, and 1.5x for Milestones.",  
-            cost: new Decimal(75),  
+            cost: new Decimal(50),  
         },  
     },  
   
