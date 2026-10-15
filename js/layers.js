@@ -299,6 +299,7 @@ addLayer("m", {
         mult = new Decimal(1)  
         if (hasUpgrade('s', 53)) mult = mult.times(2)  
         if (hasUpgrade('c', 11)) mult = mult.times(1.5)
+        if (hasUpgrade('I', 11)) mult = mult.times(1.5)
         if (hasUpgrade('I', 14)) mult = mult.times(1.25)  
         if (hasChallenge('s', 22)) mult = mult.times(2)  
   
@@ -488,6 +489,7 @@ addLayer("c", {
         if (hasMilestone('m', 4)) mult = mult.times(1.5)  
         if (hasUpgrade('c', 13)) mult = mult.times(1.5)  
         if (hasUpgrade('c', 21)) mult = mult.times(upgradeEffect('c', 21))  
+        if (hasUpgrade('I', 11)) mult = mult.times(1.5)
         return mult  
     },  
 
@@ -541,7 +543,7 @@ addLayer("I", {
     upgrades: {  
         11: {  
             title: "Iron Upgrade 1",  
-            description: "Small boost to the first Coal upgrade.",  
+            description: "1.5x Milestone and Coal gain.",  
             cost: new Decimal(1)  
         },  
   
