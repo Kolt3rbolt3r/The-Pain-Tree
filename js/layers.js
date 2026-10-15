@@ -582,6 +582,12 @@ addLayer("I", {
             description: "1.25x multiplier for Rocks, Stones, and 1.5x for Milestones.",  
             cost: new Decimal(50),  
         },  
+
+        21: {  
+            title: "Iron Upgrade 5",  
+            description: "More Coal upgrades.",  
+            cost: new Decimal(100),  
+        },  
     },  
   
     branches: ["c"],  
