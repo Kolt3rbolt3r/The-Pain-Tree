@@ -222,7 +222,7 @@ addLayer("s", {
             challengeDescription: "Rocks are square-rooted",  
             canComplete: function() {return player.points.gte(5000)},  
             goalDescription: "5,000 Points",  
-            rewardDescription: "10x stone points gain",  
+            rewardDescription: "10x stone gain",  
             unlocked() { return true }  
         },  
   
@@ -231,7 +231,7 @@ addLayer("s", {
             challengeDescription: "Rock gain is cube-rooted",  
             canComplete: function() {return player.points.gte(50000)},  
             goalDescription: "50,000 Points",  
-            rewardDescription: "5x stone points gain",  
+            rewardDescription: "5x stone gain",  
             unlocked() { return true }  
         },  
   
