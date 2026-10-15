@@ -209,7 +209,7 @@ addLayer("s", {
         53: {  
             title: "Stone Upgrade 16.",  
             description: "2x Milestone gain.",  
-            cost: new Decimal(5e27),  
+            cost: new Decimal(1e26),  
             unlocked() {  
                 return hasMilestone('m', 4)  
             }  
