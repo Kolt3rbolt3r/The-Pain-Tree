@@ -359,16 +359,16 @@ addLayer("m", {
         },  
   
         6: {  
-            requirementDescription: "500,000 Milestones",  
+            requirementDescription: "65,000 Milestones",  
             effectDescription: "Stone challenges are now kept on resets!",  
             done() {  
-                return player.m.points.gte(500000)  
+                return player.m.points.gte(65000)  
             }  
         },  
   
         7: {  
             requirementDescription: "25,000,000 Milestones",  
-            effectDescription: "More Coal upgrades (WIP RN. More to come soon!)",  
+            effectDescription: "(WIP RN. More to come soon!)",  
             done() {  
                 return player.m.points.gte(25000000)  
             }  
