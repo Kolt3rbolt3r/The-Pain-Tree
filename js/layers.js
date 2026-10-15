@@ -490,6 +490,7 @@ addLayer("c", {
         if (hasUpgrade('c', 13)) mult = mult.times(1.5)  
         if (hasUpgrade('c', 21)) mult = mult.times(upgradeEffect('c', 21))  
         if (hasUpgrade('I', 11)) mult = mult.times(1.5)
+        if (hasUpgrade('I', 12)) mult = mult.times(upgradeEffect('I', 12))
         return mult  
     },  
 
@@ -549,10 +550,10 @@ addLayer("I", {
   
         12: {  
             title: "Iron Upgrade 2",  
-            description: "Coal boosts Iron gain.",  
+            description: "Iron boosts Coal gain.",  
             cost: new Decimal(5),  
             effect() {  
-                return player.c.points.add(1).pow(0.2)  
+                return player.c.points.add(1).pow(0.1)  
             },  
             effectDisplay() {  
                 return format(upgradeEffect(this.layer, this.id))+"x"  
