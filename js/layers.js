@@ -190,8 +190,8 @@ addLayer("s", {
   
         51: {  
             title: "Stone Upgrade 14.",  
-            description: "1.5x Rock gain.",  
-            cost: new Decimal(1e25),  
+            description: "2.5x Rock gain.",  
+            cost: new Decimal(2.5e23),  
             unlocked() {  
                 return hasMilestone('m', 4)  
             }  
@@ -200,7 +200,7 @@ addLayer("s", {
         52: {  
             title: "Stone Upgrade 15.",  
             description: "1.5x Stone gain.",  
-            cost: new Decimal(2.5e27),  
+            cost: new Decimal(5e25),  
             unlocked() {  
                 return hasMilestone('m', 4)  
             }  
@@ -209,7 +209,7 @@ addLayer("s", {
         53: {  
             title: "Stone Upgrade 16.",  
             description: "2x Milestone gain.",  
-            cost: new Decimal(5e28),  
+            cost: new Decimal(5e27),  
             unlocked() {  
                 return hasMilestone('m', 4)  
             }  
