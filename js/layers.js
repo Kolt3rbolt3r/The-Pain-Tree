@@ -180,7 +180,7 @@ addLayer("s", {
         
         44: {
             title: "Finally... a new layer.",
-            description: "Unlocks the next layer: Coal.",
+            description: "Unlocks the next layer: Coal. (Buying this any time after the first time is redundant... XD",
             cost: new Decimal(5e15),
             
             onPurchase() {
