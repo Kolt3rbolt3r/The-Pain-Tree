@@ -494,7 +494,7 @@ addLayer("c", {
             tabFormat: [
         ["display-text", function() {
             return "Stone gain multiplier from Coal: " +
-                format(player.c.points.add(1).pow(0.05)) + "x"
+                format(player.c.points.add(1).pow(1.5)) + "x"
         }],
         "main-display",
         "prestige-button",
