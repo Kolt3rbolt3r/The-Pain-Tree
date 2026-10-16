@@ -680,7 +680,7 @@ addLayer("g", {
     type: "normal",
     exponent: 0.55,
 
-    row: 2,
+    row: 3,
 
     upgrades: {
         // Upgrades will go here
