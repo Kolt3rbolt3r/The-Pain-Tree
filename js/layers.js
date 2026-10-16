@@ -264,7 +264,6 @@ addLayer("s", {
         if (hasUpgrade('s', 42)) mult = mult.times(2)  
         if (hasUpgrade('s', 52)) mult = mult.times(1.5)  
         if (hasMilestone('m', 1)) mult = mult.times(2)  
-        if (hasUpgrade('c', 22)) mult = mult.times(upgradeEffect('c', 22))
         if (hasUpgrade('I', 13)) mult = mult.times(upgradeEffect('I', 13))  
         if (hasUpgrade('I', 14)) mult = mult.times(1.25)  
         mult = mult.times(player.c.points.add(1).log10().add(1).pow(1.5))
@@ -452,7 +451,7 @@ addLayer("c", {
   
         22: {  
             title: "Coal upgrade 6",  
-            description: "Coal multiplies Milestone gain.",  
+            description: "Coal multiplies Iron gain.",  
             cost: new Decimal(5000),  
   
             unlocked() {  
@@ -591,6 +590,12 @@ addLayer("I", {
     },  
   
     branches: ["c"],  
+
+    gainMult() { // Calculate the multiplier for main currency from bonuses  
+        let mult = new Decimal(1)  
+        if (hasUpgrade('c', 22)) mult = mult.times(upgradeEffect('c', 22))  
+        return mult  
+    },  
   
 layerShown() {
     return player.I.permanentlyUnlocked},
