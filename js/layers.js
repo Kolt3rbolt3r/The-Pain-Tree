@@ -268,7 +268,11 @@ addLayer("s", {
         if (hasUpgrade('c', 23)) mult = mult.times(1.25)
         if (hasUpgrade('I', 13)) mult = mult.times(upgradeEffect('I', 13))  
         if (hasUpgrade('I', 14)) mult = mult.times(1.5)  
-        mult = mult.times(player.c.points.add(1).log10().add(1).pow(1.5))
+        if (hasUpgrade('c', 33)) {
+    mult = mult.times(player.c.points.add(1).log10().add(1).pow(2))
+} else {
+    mult = mult.times(player.c.points.add(1).log10().add(1).pow(1.5))
+        }
         return mult  
     },  
 })  
@@ -498,6 +502,16 @@ addLayer("c", {
                 return hasUpgrade('I', 21)
             },
         },
+
+        33: {
+            title: "Coal Upgrade 10",
+            description: "Upgrade Coal's passive effects.",
+            cost: new Decimal(100000),
+
+            unlocked() {
+                return hasUpgrade('I', 21)
+            },
+        },
     },
             
   
@@ -514,18 +528,19 @@ addLayer("c", {
         return mult  
     },  
 
-tabFormat: [
-    ["display-text", function() {
+["display-text", function() {
+    if (hasUpgrade('c', 33)) {
+        return "Stone gain multiplier from Coal: " +
+            format(
+                player.c.points.add(1).log10().add(1).pow(2)
+            ) + "x"
+    } else {
         return "Stone gain multiplier from Coal: " +
             format(
                 player.c.points.add(1).log10().add(1).pow(1.5)
             ) + "x"
-    }],
-    "main-display",
-    "prestige-button",
-    "resource-display",
-    "upgrades",
-],
+    }
+}],
 
     layerShown() {
     return player.c.permanentlyUnlocked},    
