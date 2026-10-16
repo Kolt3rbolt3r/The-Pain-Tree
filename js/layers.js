@@ -443,7 +443,8 @@ addLayer("c", {
             },  
   
             effect() {  
-                return player.c.points.add(1).pow(0.13)  
+                if hasUpgrade('c', 32) return player.c.points.add(1).pow(0.2)
+                else return player.c.points.add(1).pow(0.12)  
             },  
   
             effectDisplay() {  
@@ -471,15 +472,25 @@ addLayer("c", {
         
         23: {
             title: "Coal Upgrade 7",
-            description: "1.25x to Rocks, Stones, and Coal.",
+            description: "1.25x to Rocks And Stones and 2x to Coal.",
             cost: new Decimal(10000),
             },
         
         31: {
             title: "Coal Upgrade 8",
             description: "Upgrade SU5.",
-            cost: new Decimal(25000),
+            cost: new Decimal(20000),
 
+            unlocked() {
+                return hasUpgrade('I', 21)
+            },
+        },
+
+        32: {
+            title: "Coal Upgrade 9",
+            description: "Upgrade CU5.",
+            cost: new Decimal(40000),
+            
             unlocked() {
                 return hasUpgrade('I', 21)
             },
@@ -494,7 +505,7 @@ addLayer("c", {
         if (hasMilestone('m', 5)) mult = mult.times(5)  
         if (hasUpgrade('c', 13)) mult = mult.times(1.5)  
         if (hasUpgrade('c', 21)) mult = mult.times(upgradeEffect('c', 21))  
-        if (hasUpgrade('c', 23)) mult = mult.times(1.25)
+        if (hasUpgrade('c', 23)) mult = mult.times(2)
         if (hasUpgrade('I', 11)) mult = mult.times(1.5)
         if (hasUpgrade('I', 12)) mult = mult.times(upgradeEffect('I', 12))
         return mult  
