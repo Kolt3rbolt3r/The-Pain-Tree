@@ -512,6 +512,22 @@ addLayer("c", {
                 return hasUpgrade('I', 21)
             },
         },
+
+        34: {
+            title: "Another one.",
+            description: "Unlock Gold Layer",
+            cost: new Decimal(150000),
+
+            unlocked() {
+                return hasUpgrade('I', 21) &&
+                       hasUpgrade('c', 33) &&
+                       hasChallenge('s', 21)
+            },
+
+            onPurchase() {
+                player.g.permanentlyUnlocked = true
+            },
+        },
     },
             
   
@@ -637,4 +653,42 @@ addLayer("I", {
   
 layerShown() {
     return player.I.permanentlyUnlocked},
+})
+
+addLayer("g", {
+    name: "Gold",
+    symbol: "G",
+    position: 1,
+
+    startData() {
+        return {
+            unlocked: true,
+            points: new Decimal(0),
+            permanentlyUnlocked: false,
+        }
+    },
+
+    color: "#FFD700",
+
+    requires: new Decimal(250),
+    resource: "Gold",
+    baseResource: "Coal",
+    baseAmount() {
+        return player.c.points
+    },
+
+    type: "normal",
+    exponent: 0.55,
+
+    row: 2,
+
+    upgrades: {
+        // Upgrades will go here
+    },
+
+    branches: ["c"],
+
+    layerShown() {
+        return player.g.permanentlyUnlocked
+    },
 })
