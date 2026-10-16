@@ -462,7 +462,7 @@ addLayer("c", {
         22: {  
             title: "Coal upgrade 6",  
             description: "Coal multiplies Iron gain.",  
-            cost: new Decimal(5000),  
+            cost: new Decimal(2500),  
   
             unlocked() {  
                 return hasMilestone('m', 5)  
@@ -480,13 +480,13 @@ addLayer("c", {
         23: {
             title: "Coal Upgrade 7",
             description: "1.25x to Rocks, Stones, and Coal.",
-            cost: new Decimal(10000),
+            cost: new Decimal(5000),
             },
         
         31: {
             title: "Coal Upgrade 8",
             description: "Upgrade SU5.",
-            cost: new Decimal(20000),
+            cost: new Decimal(10000),
 
             unlocked() {
                 return hasUpgrade('I', 21)
@@ -496,7 +496,7 @@ addLayer("c", {
         32: {
             title: "Coal Upgrade 9",
             description: "Upgrade CU5.",
-            cost: new Decimal(40000),
+            cost: new Decimal(25000),
 
             unlocked() {
                 return hasUpgrade('I', 21)
@@ -506,7 +506,7 @@ addLayer("c", {
         33: {
             title: "Coal Upgrade 10",
             description: "Upgrade Coal's passive effects.",
-            cost: new Decimal(100000),
+            cost: new Decimal(75000),
 
             unlocked() {
                 return hasUpgrade('I', 21)
