@@ -460,7 +460,7 @@ addLayer("c", {
             },  
   
             effect() {  
-                return player.c.points.add(1).pow(0.05)  
+                return player.c.points.add(1).pow(0.08)  
             },  
   
             effectDisplay() {  
