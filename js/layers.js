@@ -527,20 +527,26 @@ addLayer("c", {
         if (hasUpgrade('I', 12)) mult = mult.times(upgradeEffect('I', 12))
         return mult  
     },  
-
-["display-text", function() {
-    if (hasUpgrade('c', 33)) {
-        return "Stone gain multiplier from Coal: " +
-            format(
-                player.c.points.add(1).log10().add(1).pow(2)
-            ) + "x"
-    } else {
-        return "Stone gain multiplier from Coal: " +
-            format(
-                player.c.points.add(1).log10().add(1).pow(1.5)
-            ) + "x"
-    }
-}],
+    
+    tabFormat: [
+        ["display-text", function() {
+            if (hasUpgrade('c', 33)) {
+                return "Stone gain multiplier from Coal: " +
+                    format(
+                        player.c.points.add(1).log10().add(1).pow(2)
+                    ) + "x"
+            } else {
+                return "Stone gain multiplier from Coal: " +
+                    format(
+                        player.c.points.add(1).log10().add(1).pow(1.5)
+                    ) + "x"
+            }
+        }],
+        "main-display",
+        "prestige-button",
+        "resource-display",
+        "upgrades",
+    ],
 
     layerShown() {
     return player.c.permanentlyUnlocked},    
