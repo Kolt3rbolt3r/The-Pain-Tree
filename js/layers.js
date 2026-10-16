@@ -266,7 +266,7 @@ addLayer("s", {
         if (hasMilestone('m', 1)) mult = mult.times(2)
         if (hasUpgrade('c', 23)) mult = mult.times(1.25)
         if (hasUpgrade('I', 13)) mult = mult.times(upgradeEffect('I', 13))  
-        if (hasUpgrade('I', 14)) mult = mult.times(1.25)  
+        if (hasUpgrade('I', 14)) mult = mult.times(1.5)  
         mult = mult.times(player.c.points.add(1).log10().add(1).pow(1.5))
         return mult  
     },  
@@ -301,7 +301,7 @@ addLayer("m", {
         if (hasUpgrade('s', 53)) mult = mult.times(2)  
         if (hasUpgrade('c', 11)) mult = mult.times(2.5)
         if (hasUpgrade('I', 11)) mult = mult.times(3)
-        if (hasUpgrade('I', 14)) mult = mult.times(1.5)  
+        if (hasUpgrade('I', 14)) mult = mult.times(2)  
         if (hasChallenge('s', 22)) mult = mult.times(3)  
   
         return mult  
@@ -570,7 +570,7 @@ addLayer("I", {
   
         14: {  
             title: "Iron Upgrade 4",  
-            description: "1.25x multiplier for Rocks, Stones, and 1.5x for Milestones.",  
+            description: "1.5x multiplier for Rocks and Stones + 2x for Milestones.",  
             cost: new Decimal(50),  
         },  
 
