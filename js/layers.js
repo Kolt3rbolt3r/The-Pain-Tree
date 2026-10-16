@@ -470,21 +470,26 @@ addLayer("c", {
         23: {
             title: "Coal Upgrade 7",
             description: "Adds ^0.01 to Rock gain per purchase.",
-            cost: new Decimal(5000),
-
+            cost() {
+                return new Decimal(5000).times(
+                    Decimal.pow(2, player.c.upgrades[23])
+                )
+            },
+            
             unlocked() {
                 return hasMilestone('m', 5)
             },
+            
             repeatable: true,
-            costScaling: new Decimal(2),
+            
             effect() {
                 return new Decimal(0.01).times(player.c.upgrades[23])
             },
+            
             effectDisplay() {
-                return "^"+format(upgradeEffect(this.layer, this.id))
+                return "^" + format(upgradeEffect(this.layer, this.id))
             }
         },
-    },  
   
     branches: ["s"],  
   
