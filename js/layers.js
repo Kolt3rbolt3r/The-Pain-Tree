@@ -368,10 +368,10 @@ addLayer("m", {
         },  
   
         7: {  
-            requirementDescription: "25,000,000 Milestones",  
-            effectDescription: "(WIP RN. More to come soon!)",  
+            requirementDescription: "150,000,000 Milestones",  
+            effectDescription: "WIP MORE TO COME SOOM",  
             done() {  
-                return player.m.points.gte(25000000)  
+                return player.m.points.gte(150000000)  
             }  
         },  
     },  
@@ -478,7 +478,17 @@ addLayer("c", {
         31: {
             title: "Coal Upgrade 8",
             description: "Upgrade SU5.",
-            cost: new Decimal(25000),
+            cost: new Decimal(20000),
+
+            unlocked() {
+                return hasUpgrade('I', 21)
+            },
+        },
+
+        32: {
+            title: "Coal Upgrade 9",
+            description: "Upgrade CU5.",
+            cost: new Decimal(40000),
 
             unlocked() {
                 return hasUpgrade('I', 21)
