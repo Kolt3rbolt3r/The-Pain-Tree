@@ -432,34 +432,29 @@ addLayer("c", {
                 player.I.permanentlyUnlocked = true
             },
         },  
-        
+
         21: {
             title: "Coal Upgrade 5",
             description: "Coal multiplies Coal gain.",
             cost: new Decimal(500),
-            
+
             unlocked() {
                 return hasMilestone('m', 5)
             },
-            
+
             effect() {
-                if (hasUpgrade('I', 32)) {
+                if (hasUpgrade('c', 32)) {
                     return player.c.points.add(1).pow(0.20)
                 } else {
                     return player.c.points.add(1).pow(0.12)
                 }
             },
-            
+
             effectDisplay() {
                 return format(upgradeEffect(this.layer, this.id)) + "x"
             }
         },
-        
-        effectDisplay() {
-            return format(upgradeEffect(this.layer, this.id)) + "x"
-        }
-    },
-  
+
         22: {  
             title: "Coal upgrade 6",  
             description: "Coal multiplies Iron gain.",  
