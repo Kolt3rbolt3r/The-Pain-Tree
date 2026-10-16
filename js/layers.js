@@ -452,7 +452,7 @@ addLayer("c", {
         22: {  
             title: "Coal upgrade 6",  
             description: "Coal multiplies Iron gain.",  
-            cost: new Decimal(5000),  
+            cost: new Decimal(3000),  
   
             unlocked() {  
                 return hasMilestone('m', 5)  
@@ -484,6 +484,15 @@ addLayer("c", {
                 return "^"+format(upgradeEffect(this.layer, this.id))
             }
         },
+
+        31: {  
+            title: "Coal Upgrade 8",  
+            description: "SU5 is upgraded again(placeholder cost).",  
+            cost: new Decimal(100000),  
+
+            unlocked() {
+                return hasUpgrade('I', 21)
+        },  
     },  
   
     branches: ["s"],  
