@@ -263,7 +263,8 @@ addLayer("s", {
         if (hasUpgrade('s', 33)) mult = mult.times(upgradeEffect('s', 33))  
         if (hasUpgrade('s', 42)) mult = mult.times(2)  
         if (hasUpgrade('s', 52)) mult = mult.times(1.5)  
-        if (hasMilestone('m', 1)) mult = mult.times(2)  
+        if (hasMilestone('m', 1)) mult = mult.times(2)
+        if (hasUpgrade('c', 23)) mult = mult.times(1.25)
         if (hasUpgrade('I', 13)) mult = mult.times(upgradeEffect('I', 13))  
         if (hasUpgrade('I', 14)) mult = mult.times(1.25)  
         mult = mult.times(player.c.points.add(1).log10().add(1).pow(1.5))
@@ -469,35 +470,20 @@ addLayer("c", {
         
         23: {
             title: "Coal Upgrade 7",
-            description: "Adds ^0.01 to Rock gain per purchase.",
-            cost() {
-                return new Decimal(5000).times(
-                    Decimal.pow(2, player.c.upgrades[23])
-                )
+            description: "1.25x to Rocks, Stones, and Coal.",
+            cost: new Decimal(10000),
             },
+    },
             
-            unlocked() {
-                return hasMilestone('m', 5)
-            },
-            
-            repeatable: true,
-            
-            effect() {
-                return new Decimal(0.01).times(player.c.upgrades[23])
-            },
-            
-            effectDisplay() {
-                return "^" + format(upgradeEffect(this.layer, this.id))
-            }
-        },
   
     branches: ["s"],  
   
-    gainMult() { // Calculate the multiplier for main currency from bonuses  
+    gainMult() {
         let mult = new Decimal(1)  
         if (hasMilestone('m', 5)) mult = mult.times(5)  
         if (hasUpgrade('c', 13)) mult = mult.times(1.5)  
         if (hasUpgrade('c', 21)) mult = mult.times(upgradeEffect('c', 21))  
+        if (hasUpgrade('c', 23)) mult = mult.times(1.25)
         if (hasUpgrade('I', 11)) mult = mult.times(1.5)
         if (hasUpgrade('I', 12)) mult = mult.times(upgradeEffect('I', 12))
         return mult  
