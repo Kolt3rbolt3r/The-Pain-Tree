@@ -42,10 +42,12 @@ addLayer("s", {
   
     row: 1,  
   
-    passiveGeneration() {  
-        if (hasMilestone('m', 3)) {  
-            return 0.5  
-        }  
+    passiveGeneration() {
+    if (hasMilestone('m', 3)) {
+        return hasUpgrade('c', 32) ? 1 : 0.5
+    }
+    return 0
+    }
     },  
   
     hotkeys: [  
@@ -110,7 +112,8 @@ addLayer("s", {
             description: "Rocks boost Stone gain",  
             cost: new Decimal(65),  
             effect() {  
-                if (hasUpgrade('s', 43)) return player.points.add(1).pow(0.25)  
+                if (hasUpgrade('s', 43)) return player.points.add(1).pow(0.25)
+                if (hasUpgrade('c', 31)) return player.points.add(1).pow(0.35)
                 else return player.points.add(1).pow(0.15)  
             },  
             effectDisplay() {  
@@ -339,6 +342,7 @@ addLayer("m", {
             done() {  
                 return player.m.points.gte(250)  
             }  
+            
         },  
   
         4: {  
@@ -484,7 +488,22 @@ addLayer("c", {
                 return "^"+format(upgradeEffect(this.layer, this.id))
             }
         },
-    },  
+
+        31: {  
+            title: "Coal Upgrade 8",  
+            description: "Upgrades SU5(placeholder cost).",  
+            cost: new Decimal(500000),  
+            unlocked() {
+                return hasUpgrade('c', 32)
+            },  
+
+        32: {  
+            title: "Coal Upgrade 9",  
+            description: "Buffs Milestone 3 to 100%(placeholder cost).",  
+            cost: new Decimal(500000),  
+            unlocked() {
+                return hasUpgrade('c', 32)
+            },
   
     branches: ["s"],  
   
