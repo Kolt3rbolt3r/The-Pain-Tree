@@ -111,7 +111,7 @@ addLayer("s", {
             cost: new Decimal(65),  
             effect() {  
                 if (hasUpgrade('s', 43)) return player.points.add(1).pow(0.25)  
-                if (hasUpgrade('c', 31)) return player.points.add(1).pow(0.33)
+                if (hasUpgrade('c', 31)) return player.points.add(1).pow(0.4)
                 else return player.points.add(1).pow(0.15)  
             },  
             effectDisplay() {  
