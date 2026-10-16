@@ -441,7 +441,7 @@ addLayer("c", {
             },  
   
             effect() {  
-                return player.c.points.add(1).pow(0.15)  
+                return player.c.points.add(1).pow(0.13)  
             },  
   
             effectDisplay() {  
@@ -470,7 +470,7 @@ addLayer("c", {
         23: {
             title: "Coal Upgrade 7",
             description: "Adds ^0.01 to Rock gain per purchase.",
-            cost: new Decimal(30000),
+            cost: new Decimal(5000),
 
             unlocked() {
                 return hasMilestone('m', 5)
