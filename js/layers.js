@@ -111,6 +111,7 @@ addLayer("s", {
             cost: new Decimal(65),  
             effect() {  
                 if (hasUpgrade('s', 43)) return player.points.add(1).pow(0.25)  
+                if (hasUpgrade('c', 31)) return player.points.add(1).pow(0.33)
                 else return player.points.add(1).pow(0.15)  
             },  
             effectDisplay() {  
@@ -473,6 +474,16 @@ addLayer("c", {
             description: "1.25x to Rocks, Stones, and Coal.",
             cost: new Decimal(10000),
             },
+        
+        31: {
+            title: "Coal Upgrade 8",
+            description: "Upgrade SU5.",
+            cost: new Decimal(25000),
+
+            unlocked() {
+                return hasUpgrade('I', 21)
+            },
+        },
     },
             
   
