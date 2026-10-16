@@ -529,12 +529,13 @@ addLayer("I", {
     symbol: "I",  
     position: 0,  
   
-    startData() {  
-        return {  
-            unlocked: true,  
-            points: new Decimal(0),  
-        }  
-    },  
+    startData() {
+    return {
+        unlocked: true,
+        points: new Decimal(0),
+        permanentlyUnlocked: false,
+    }
+},
   
     color: "#f1c40f",  
   
