@@ -494,9 +494,9 @@ addLayer("c", {
                 return hasUpgrade('I', 21)
         },  
     },  
-  
+},
+    
     branches: ["s"],  
-  
     gainMult() { // Calculate the multiplier for main currency from bonuses  
         let mult = new Decimal(1)  
         if (hasMilestone('m', 5)) mult = mult.times(5)  
