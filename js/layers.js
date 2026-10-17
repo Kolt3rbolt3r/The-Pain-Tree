@@ -678,12 +678,16 @@ addLayer("g", {
     },
 
     type: "normal",
-    exponent: 0.55,
+    exponent: 0.4,
 
     row: 3,
 
     upgrades: {
-        // Upgrades will go here
+        11: {
+            title: "WIP",
+            description: "WIP",
+            cost: new Decimal (999999),
+        }
     },
 
     branches: ["c"],
